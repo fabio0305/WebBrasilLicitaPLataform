@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel – Licita Brasil Web</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="painel.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="painel-body">
+
+  <!-- ══════════════════════════════════════ SIDEBAR ══════════════════════════════════════ -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar__top">
+      <a href="index.html" class="sidebar__logo">
+        <span class="sidebar__logo-icon">⚖</span>
+        <span class="sidebar__logo-text">Licita<strong>Brasil</strong></span>
+      </a>
+      <button class="sidebar__close" id="sidebarClose" aria-label="Fechar menu">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+      </button>
+    </div>
+
+    <div class="sidebar__user">
+      <div class="sidebar__avatar">FS</div>
+      <div class="sidebar__user-info">
+        <span class="sidebar__user-name">Fabio Santos</span>
+        <span class="role-badge role-badge--citizen">Cidadão</span>
+      </div>
+    </div>
+
+    <nav class="sidebar__nav">
+
+      <div class="sidebar__group">
+        <p class="sidebar__group-label">Principal</p>
+        <ul>
+          <li>
+            <a href="painel.html" class="sidebar__link sidebar__link--active">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+              <span>Início</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="sidebar__link">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+              <span>Buscar Licitações</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="sidebar__link">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+              <span>Minhas Licitações</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="sidebar__link">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/></svg>
+              <span>Notificações</span>
+              <span class="sidebar__badge">3</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar__group">
+        <p class="sidebar__group-label">Minha Empresa</p>
+        <ul>
+          <li>
+            <a href="fornecedor-cadastro.html" class="sidebar__link sidebar__link--cta">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"/></svg>
+              <span>Cadastrar Fornecedor</span>
+              <span class="sidebar__new">Novo</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="sidebar__link sidebar__link--cta">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 7l2.55 2.4A1 1 0 0116 11H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z" clip-rule="evenodd"/></svg>
+              <span>Cadastrar Organização</span>
+              <span class="sidebar__new">Novo</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar__group">
+        <p class="sidebar__group-label">Conta</p>
+        <ul>
+          <li>
+            <a href="#" class="sidebar__link">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+              <span>Meu Perfil</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="sidebar__link">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
+              <span>Configurações</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </nav>
+
+    <a href="login.html" class="sidebar__logout">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"/></svg>
+      Sair da conta
+    </a>
+
+  </aside>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ══════════════════════════════════════ MAIN ══════════════════════════════════════ -->
+  <div class="painel-main">
+
+    <!-- Topbar -->
+    <header class="painel-topbar">
+      <div class="painel-topbar__left">
+        <button class="painel-topbar__menu" id="sidebarToggle" aria-label="Abrir menu">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+        </button>
+        <nav class="painel-topbar__breadcrumb" aria-label="Caminho">
+          <a href="painel.html">Painel</a>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+          <span>Início</span>
+        </nav>
+      </div>
+      <div class="painel-topbar__right">
+        <button class="painel-topbar__notif" aria-label="Notificações">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/></svg>
+          <span class="painel-topbar__notif-dot">3</span>
+        </button>
+        <div class="painel-topbar__user-pill">
+          <div class="painel-topbar__avatar">FS</div>
+          <span>Fabio Santos</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <main class="painel-content">
+
+      <!-- Welcome Banner -->
+      <div class="welcome-banner">
+        <div class="welcome-banner__body">
+          <h1 class="welcome-banner__title">Bem-vindo, Fabio!</h1>
+          <p class="welcome-banner__subtitle">Você está autenticado como <strong>Cidadão</strong>. Amplie seu acesso para participar de licitações ou gerenciar processos públicos.</p>
+        </div>
+        <div class="welcome-banner__profile">
+          <div class="welcome-banner__avatar">FS</div>
+          <div>
+            <strong>Fabio Santos</strong>
+            <span class="role-badge role-badge--citizen" style="display:block;margin-top:4px">Cidadão</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ampliar acesso -->
+      <section class="painel-section">
+        <h2 class="painel-section__title">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          Ampliar seu acesso
+        </h2>
+        <div class="access-cards">
+
+          <a href="fornecedor-cadastro.html" class="access-card access-card--green">
+            <div class="access-card__head">
+              <div class="access-card__icon">
+                <svg viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#059669" fill-opacity=".12"/><path d="M16 32v-8a2 2 0 012-2h12a2 2 0 012 2v8" stroke="#059669" stroke-width="2" stroke-linecap="round"/><path d="M12 32h24M20 22v-4a4 4 0 018 0v4" stroke="#059669" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <span class="access-card__badge access-card__badge--green">Disponível</span>
+            </div>
+            <h3 class="access-card__title">Cadastrar Fornecedor</h3>
+            <p class="access-card__desc">Registre sua empresa para participar de licitações, enviar propostas e assinar contratos digitalmente em todo o território nacional.</p>
+            <div class="access-card__info">
+              <span>6 etapas</span><span class="access-card__dot">·</span><span>~15 minutos</span>
+            </div>
+            <div class="access-card__cta">
+              Iniciar cadastro
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </div>
+          </a>
+
+          <a href="#" class="access-card access-card--blue">
+            <div class="access-card__head">
+              <div class="access-card__icon">
+                <svg viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="12" fill="#1B4FD8" fill-opacity=".12"/><path d="M24 14c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm0 2a8 8 0 110 16 8 8 0 010-16z" fill="#1B4FD8"/><path d="M20 24h8M24 20v8" stroke="#1B4FD8" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <span class="access-card__badge access-card__badge--blue">Disponível</span>
+            </div>
+            <h3 class="access-card__title">Cadastrar Organização</h3>
+            <p class="access-card__desc">Registre seu órgão público, autarquia ou empresa estatal para publicar editais e gerenciar processos licitatórios conforme a Lei 14.133/2021.</p>
+            <div class="access-card__info">
+              <span>5 etapas</span><span class="access-card__dot">·</span><span>~10 minutos</span>
+            </div>
+            <div class="access-card__cta">
+              Iniciar cadastro
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- Visão geral -->
+      <section class="painel-section">
+        <h2 class="painel-section__title">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+          Visão geral
+        </h2>
+        <div class="overview-grid">
+          <div class="overview-card">
+            <div class="overview-card__icon overview-card__icon--blue">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+            </div>
+            <div>
+              <span class="overview-card__value">128.400</span>
+              <span class="overview-card__label">Licitações disponíveis</span>
+            </div>
+          </div>
+          <div class="overview-card">
+            <div class="overview-card__icon overview-card__icon--orange">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/></svg>
+            </div>
+            <div>
+              <span class="overview-card__value">0</span>
+              <span class="overview-card__label">Alertas configurados</span>
+            </div>
+          </div>
+          <div class="overview-card">
+            <div class="overview-card__icon overview-card__icon--green">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+            </div>
+            <div>
+              <span class="overview-card__value">0</span>
+              <span class="overview-card__label">Licitações seguidas</span>
+            </div>
+          </div>
+          <div class="overview-card">
+            <div class="overview-card__icon overview-card__icon--purple">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/></svg>
+            </div>
+            <div>
+              <span class="overview-card__value">0</span>
+              <span class="overview-card__label">Documentos salvos</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Licitações em destaque -->
+      <section class="painel-section">
+        <div class="painel-section__header">
+          <h2 class="painel-section__title" style="margin-bottom:0">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+            Licitações em destaque
+          </h2>
+          <a href="#" class="painel-section__action">Ver todas →</a>
+        </div>
+        <div class="bids-list">
+          <div class="bid-row">
+            <span class="bid-tag bid-tag--pregao">Pregão</span>
+            <div class="bid-row__body">
+              <p class="bid-row__title">Aquisição de equipamentos de informática e suprimentos para uso nas secretarias municipais</p>
+              <span class="bid-row__org">Prefeitura de São Paulo – SP</span>
+            </div>
+            <div class="bid-row__meta">
+              <span class="bid-row__value">R$ 840.000</span>
+              <span class="bid-row__deadline">Encerra 30/04/2026</span>
+            </div>
+          </div>
+          <div class="bid-row">
+            <span class="bid-tag bid-tag--dispensa">Dispensa</span>
+            <div class="bid-row__body">
+              <p class="bid-row__title">Contratação de empresa especializada em serviços de limpeza e conservação predial</p>
+              <span class="bid-row__org">TRF 3ª Região – São Paulo/SP</span>
+            </div>
+            <div class="bid-row__meta">
+              <span class="bid-row__value">R$ 320.000</span>
+              <span class="bid-row__deadline">Encerra 02/05/2026</span>
+            </div>
+          </div>
+          <div class="bid-row">
+            <span class="bid-tag bid-tag--concorrencia">Concorrência</span>
+            <div class="bid-row__body">
+              <p class="bid-row__title">Obras de pavimentação, drenagem e sinalização viária – Lote 3, Zona Norte</p>
+              <span class="bid-row__org">Secretaria de Infraestrutura do Paraná</span>
+            </div>
+            <div class="bid-row__meta">
+              <span class="bid-row__value">R$ 4.200.000</span>
+              <span class="bid-row__deadline">Encerra 15/05/2026</span>
+            </div>
+          </div>
+          <div class="bid-row">
+            <span class="bid-tag bid-tag--pregao">Pregão</span>
+            <div class="bid-row__body">
+              <p class="bid-row__title">Aquisição de medicamentos e insumos farmacêuticos para a rede pública de saúde estadual</p>
+              <span class="bid-row__org">Secretaria de Saúde – MG</span>
+            </div>
+            <div class="bid-row__meta">
+              <span class="bid-row__value">R$ 1.750.000</span>
+              <span class="bid-row__deadline">Encerra 08/05/2026</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="painel.js"></script>
+</body>
+</html>

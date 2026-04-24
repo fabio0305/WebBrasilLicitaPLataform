@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro – Licita Brasil Web</title>
+  <meta name="description" content="Crie sua conta gratuita na plataforma de licitações mais completa do Brasil." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="cadastro.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <span class="logo__icon">⚖</span>
+        <span class="logo__text">Licita<strong>Brasil</strong><span class="logo__tag">Web</span></span>
+      </a>
+      <div class="header__actions">
+        <a href="index.html" class="btn btn--ghost">Voltar ao site</a>
+        <a href="login.html" class="btn btn--primary">Acessar Plataforma</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="reg-page">
+    <div class="reg-page__bg">
+      <div class="shape shape--1"></div>
+      <div class="shape shape--2"></div>
+    </div>
+
+    <div class="container reg-page__inner">
+
+      <!-- Left panel -->
+      <div class="reg-info">
+        <span class="badge badge--blue">Cadastro gratuito</span>
+        <h1 class="reg-info__title">Comece agora a <strong>simplificar</strong> suas licitações</h1>
+        <p class="reg-info__desc">Crie sua conta em menos de 2 minutos e tenha acesso à plataforma mais completa do Brasil.</p>
+
+        <ul class="reg-benefits">
+          <li>
+            <div class="reg-benefit__icon reg-benefit__icon--blue">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            </div>
+            <div>
+              <strong>Consulta pública gratuita</strong>
+              <span>Acompanhe licitações de todo o Brasil</span>
+            </div>
+          </li>
+          <li>
+            <div class="reg-benefit__icon reg-benefit__icon--green">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            </div>
+            <div>
+              <strong>Alertas personalizados</strong>
+              <span>Receba notificações de novas licitações</span>
+            </div>
+          </li>
+          <li>
+            <div class="reg-benefit__icon reg-benefit__icon--purple">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            </div>
+            <div>
+              <strong>Controle social</strong>
+              <span>Fiscalize os gastos públicos do seu município</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="reg-info__trust">
+          <svg viewBox="0 0 20 20" fill="currentColor" class="trust-icon"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          Seus dados estão protegidos conforme a LGPD
+        </div>
+      </div>
+
+      <!-- Right panel: form card -->
+      <div class="reg-card" id="regCard">
+
+        <!-- Progress (4 steps) -->
+        <div class="reg-progress">
+          <div class="reg-progress__step reg-progress__step--active" id="prog-1">
+            <div class="reg-progress__dot">1</div>
+            <span>Verificação</span>
+          </div>
+          <div class="reg-progress__line"></div>
+          <div class="reg-progress__step" id="prog-2">
+            <div class="reg-progress__dot">2</div>
+            <span>Dados</span>
+          </div>
+          <div class="reg-progress__line"></div>
+          <div class="reg-progress__step" id="prog-3">
+            <div class="reg-progress__dot">3</div>
+            <span>E-mail</span>
+          </div>
+          <div class="reg-progress__line"></div>
+          <div class="reg-progress__step" id="prog-4">
+            <div class="reg-progress__dot">4</div>
+            <span>Senha</span>
+          </div>
+        </div>
+
+        <!-- ─── STEP 1: CPF ─────────────────────────────────────────── -->
+        <div id="step1">
+          <h2 class="reg-card__title">Informe seu CPF</h2>
+          <p class="reg-card__subtitle">Usaremos seu CPF para verificar seu cadastro na plataforma.</p>
+
+          <div class="form-group" id="cpfGroup">
+            <label class="form-label" for="cpfInput">CPF</label>
+            <div class="form-input-wrapper">
+              <svg class="form-input-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+              <input type="text" id="cpfInput" class="form-input" placeholder="000.000.000-00" maxlength="14" autocomplete="off" inputmode="numeric" />
+              <div class="form-input-status" id="cpfStatus"></div>
+            </div>
+            <p class="form-hint" id="cpfHint">Digite apenas números — a formatação é automática.</p>
+          </div>
+
+          <button class="btn btn--primary btn--block" id="btnNext" disabled>
+            <span id="btnNextLabel">Continuar</span>
+            <svg id="btnNextSpinner" class="btn-spinner hidden" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-dasharray="40" stroke-dashoffset="10" /></svg>
+          </button>
+
+          <p class="reg-card__login">Já tem cadastro? <a href="login.html">Acesse aqui</a></p>
+        </div>
+
+        <!-- ─── STEP 2: Personal data ───────────────────────────────── -->
+        <div id="step2" class="hidden">
+          <div class="reg-card__back" id="btnBack2">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg>
+            Voltar
+          </div>
+
+          <h2 class="reg-card__title">Complete seus dados</h2>
+          <p class="reg-card__subtitle">Preencha as informações abaixo para continuar.</p>
+
+          <div class="reg-cpf-badge" id="cpfConfirmed"></div>
+
+          <div class="form-group">
+            <label class="form-label" for="nomeInput">Nome completo <span class="form-required">*</span></label>
+            <div class="form-input-wrapper">
+              <svg class="form-input-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/></svg>
+              <input type="text" id="nomeInput" class="form-input" placeholder="Seu nome completo" autocomplete="name" />
+            </div>
+            <p class="form-error hidden" id="nomeError">Informe seu nome completo.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="telefoneInput">Telefone / WhatsApp <span class="form-required">*</span></label>
+            <div class="form-input-wrapper">
+              <svg class="form-input-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+              <input type="tel" id="telefoneInput" class="form-input" placeholder="(00) 00000-0000" maxlength="15" autocomplete="tel" inputmode="numeric" />
+            </div>
+            <p class="form-error hidden" id="telefoneError">Informe um telefone válido.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="emailInput">E-mail <span class="form-required">*</span></label>
+            <div class="form-input-wrapper">
+              <svg class="form-input-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+              <input type="email" id="emailInput" class="form-input" placeholder="seu@email.com.br" autocomplete="email" />
+            </div>
+            <p class="form-error hidden" id="emailError">Informe um e-mail válido.</p>
+          </div>
+
+          <div class="reg-profile-notice">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+            Seu perfil inicial será <strong>Cidadão</strong>. Após o cadastro, você poderá solicitar acesso como Comprador ou Fornecedor.
+          </div>
+
+          <div class="form-terms">
+            <label class="form-checkbox">
+              <input type="checkbox" id="termsCheck" />
+              <span class="form-checkbox__box"></span>
+              <span>Li e concordo com os <a href="#">Termos de Uso</a> e a <a href="#">Política de Privacidade</a></span>
+            </label>
+          </div>
+
+          <button class="btn btn--primary btn--block" id="btnSubmit">
+            <span id="btnSubmitLabel">Verificar e-mail</span>
+            <svg id="btnSubmitSpinner" class="btn-spinner hidden" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-dasharray="40" stroke-dashoffset="10" /></svg>
+          </button>
+        </div>
+
+        <!-- ─── STEP 3: E-mail verification ────────────────────────── -->
+        <div id="step3" class="hidden">
+          <div class="reg-card__back" id="btnBack3">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg>
+            Voltar
+          </div>
+
+          <div class="verify-icon">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="24" fill="#eff6ff"/>
+              <path d="M10 16a2 2 0 012-2h24a2 2 0 012 2v16a2 2 0 01-2 2H12a2 2 0 01-2-2V16z" fill="#bfdbfe"/>
+              <path d="M10 16l14 10 14-10" stroke="#2C3F31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <h2 class="reg-card__title">Verifique seu e-mail</h2>
+          <p class="reg-card__subtitle">
+            Enviamos um código de 6 dígitos para<br>
+            <strong id="emailMasked"></strong>
+          </p>
+
+          <!-- Dev code banner (only shown when SMTP not configured) -->
+          <div id="devCodeBanner" class="dev-code-banner hidden">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+            <span>Código de desenvolvimento: <strong id="devCodeValue"></strong></span>
+          </div>
+
+          <!-- 6-digit code input -->
+          <div class="code-input-group" id="codeInputGroup">
+            <input class="code-digit" type="text" inputmode="numeric" maxlength="1" autocomplete="off" data-idx="0" />
+            <input class="code-digit" type="text" inputmode="numeric" maxlength="1" autocomplete="off" data-idx="1" />
+            <input class="code-digit" type="text" inputmode="numeric" maxlength="1" autocomplete="off" data-idx="2" />
+            <span class="code-separator">–</span>
+            <input class="code-digit" type="text" inputmode="numeric" maxlength="1" autocomplete="off" data-idx="3" />
+            <input class="code-digit" type="text" inputmode="numeric" maxlength="1" autocomplete="off" data-idx="4" />
+            <input class="code-digit" type="text" inputmode="numeric" maxlength="1" autocomplete="off" data-idx="5" />
+          </div>
+          <p class="form-error hidden" id="codeError"></p>
+
+          <!-- Countdown + resend -->
+          <div class="verify-resend">
+            <span id="resendCountdown" class="verify-countdown"></span>
+            <button id="btnResend" class="verify-resend__btn hidden" type="button">Reenviar código</button>
+          </div>
+
+          <button class="btn btn--primary btn--block" id="btnVerifyCode" disabled>
+            <span id="btnVerifyLabel">Verificar código</span>
+            <svg id="btnVerifySpinner" class="btn-spinner hidden" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-dasharray="40" stroke-dashoffset="10" /></svg>
+          </button>
+        </div>
+
+        <!-- ─── STEP 4: Password creation ──────────────────────────── -->
+        <div id="step4" class="hidden">
+          <div class="verify-icon verify-icon--green">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="24" fill="#d1fae5"/>
+              <path d="M16 24l6 6 10-12" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <h2 class="reg-card__title">Crie sua senha</h2>
+          <p class="reg-card__subtitle">Escolha uma senha segura para proteger sua conta.</p>
+
+          <div class="form-group">
+            <label class="form-label" for="passwordInput">Senha <span class="form-required">*</span></label>
+            <div class="form-input-wrapper">
+              <svg class="form-input-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+              <input type="password" id="passwordInput" class="form-input form-input--no-right-icon" placeholder="Sua senha" autocomplete="new-password" />
+              <button type="button" class="pwd-toggle" id="pwdToggle" tabindex="-1" aria-label="Mostrar senha">
+                <svg class="eye-icon" id="eyeShow" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
+                <svg class="eye-icon hidden" id="eyeHide" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 012.45 2.45l1.514 1.514a4 4 0 00-5.478-5.478z" clip-rule="evenodd"/><path d="M12.454 16.697L9.75 13.992a4 4 0 01-3.742-3.741L2.335 6.578A9.98 9.98 0 00.458 10c1.274 4.057 5.064 7 9.542 7 .847 0 1.669-.105 2.454-.303z"/></svg>
+              </button>
+            </div>
+
+            <!-- Strength bar -->
+            <div class="pwd-strength">
+              <div class="pwd-strength__bar">
+                <div class="pwd-strength__fill" id="pwdStrengthFill"></div>
+              </div>
+              <span class="pwd-strength__label" id="pwdStrengthLabel"></span>
+            </div>
+          </div>
+
+          <!-- Requirements checklist -->
+          <ul class="pwd-requirements">
+            <li class="req-item" id="req-length">
+              <span class="req-icon req-icon--neutral"></span>
+              <span>Mínimo de 8 caracteres</span>
+            </li>
+            <li class="req-item" id="req-upper">
+              <span class="req-icon req-icon--neutral"></span>
+              <span>1 letra maiúscula</span>
+            </li>
+            <li class="req-item" id="req-lower">
+              <span class="req-icon req-icon--neutral"></span>
+              <span>1 letra minúscula</span>
+            </li>
+            <li class="req-item" id="req-number">
+              <span class="req-icon req-icon--neutral"></span>
+              <span>1 número</span>
+            </li>
+            <li class="req-item" id="req-special">
+              <span class="req-icon req-icon--neutral"></span>
+              <span>1 caractere especial (!@#$%&...)</span>
+            </li>
+          </ul>
+
+          <div class="form-group" style="margin-top:20px">
+            <label class="form-label" for="passwordConfirm">Confirmar senha <span class="form-required">*</span></label>
+            <div class="form-input-wrapper">
+              <svg class="form-input-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+              <input type="password" id="passwordConfirm" class="form-input form-input--no-right-icon" placeholder="Repita a senha" autocomplete="new-password" />
+              <button type="button" class="pwd-toggle" id="pwdToggle2" tabindex="-1" aria-label="Mostrar confirmação">
+                <svg class="eye-icon" id="eyeShow2" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
+                <svg class="eye-icon hidden" id="eyeHide2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 012.45 2.45l1.514 1.514a4 4 0 00-5.478-5.478z" clip-rule="evenodd"/><path d="M12.454 16.697L9.75 13.992a4 4 0 01-3.742-3.741L2.335 6.578A9.98 9.98 0 00.458 10c1.274 4.057 5.064 7 9.542 7 .847 0 1.669-.105 2.454-.303z"/></svg>
+              </button>
+            </div>
+            <p class="form-error hidden" id="confirmError">As senhas não coincidem.</p>
+          </div>
+
+          <p class="form-error hidden" id="pwdApiError"></p>
+
+          <button class="btn btn--primary btn--block" id="btnFinish" disabled>
+            <span id="btnFinishLabel">Criar minha conta</span>
+            <svg id="btnFinishSpinner" class="btn-spinner hidden" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-dasharray="40" stroke-dashoffset="10" /></svg>
+          </button>
+        </div>
+
+        <!-- ─── SUCCESS ─────────────────────────────────────────────── -->
+        <div id="stepSuccess" class="hidden">
+          <div class="reg-success">
+            <div class="reg-success__icon">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#d1fae5"/><path d="M7 12l3.5 3.5L17 9" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h2 class="reg-success__title">Cadastro realizado!</h2>
+            <p class="reg-success__desc">Bem-vindo à Licita Brasil Web. Seu perfil de <strong>Cidadão</strong> foi criado com sucesso.</p>
+            <a href="login.html" class="btn btn--primary btn--block">Acessar a plataforma</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER (simplified) -->
+  <footer class="footer reg-footer">
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>&copy; 2026 Licita Brasil Web Tecnologia S/A · CNPJ 00.000.000/0001-00</p>
+        <p><a href="#">Termos de Uso</a> · <a href="#">Política de Privacidade</a> · <a href="#">LGPD</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="cadastro.js"></script>
+</body>
+</html>

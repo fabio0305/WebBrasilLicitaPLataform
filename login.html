@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrar – Licita Brasil Web</title>
+  <meta name="description" content="Acesse sua conta na plataforma de licitações mais completa do Brasil." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="cadastro.css" />
+  <link rel="stylesheet" href="login.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <span class="logo__icon">⚖</span>
+        <span class="logo__text">Licita<strong>Brasil</strong><span class="logo__tag">Web</span></span>
+      </a>
+      <div class="header__actions">
+        <a href="index.html" class="btn btn--ghost">Voltar ao site</a>
+        <a href="cadastro.html" class="btn btn--primary">Cadastrar Grátis</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="reg-page">
+    <div class="reg-page__bg">
+      <div class="shape shape--1"></div>
+      <div class="shape shape--2"></div>
+    </div>
+
+    <div class="container reg-page__inner">
+
+      <!-- Left panel -->
+      <div class="reg-info">
+        <span class="badge badge--blue">Acesso seguro</span>
+        <h1 class="reg-info__title">Bem-vindo de <strong>volta</strong> à plataforma</h1>
+        <p class="reg-info__desc">Entre na sua conta e acompanhe licitações, gerencie processos e acesse tudo que você precisa.</p>
+
+        <ul class="reg-benefits">
+          <li>
+            <div class="reg-benefit__icon reg-benefit__icon--blue">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            </div>
+            <div>
+              <strong>Painel completo</strong>
+              <span>Acompanhe todos os seus processos em tempo real</span>
+            </div>
+          </li>
+          <li>
+            <div class="reg-benefit__icon reg-benefit__icon--green">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            </div>
+            <div>
+              <strong>Alertas personalizados</strong>
+              <span>Receba notificações das licitações do seu interesse</span>
+            </div>
+          </li>
+          <li>
+            <div class="reg-benefit__icon reg-benefit__icon--purple">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            </div>
+            <div>
+              <strong>Certificado digital</strong>
+              <span>Assine documentos e propostas com total segurança</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="reg-info__trust">
+          <svg viewBox="0 0 20 20" fill="currentColor" class="trust-icon"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          Seus dados estão protegidos conforme a LGPD
+        </div>
+      </div>
+
+      <!-- Right panel: login card -->
+      <div class="reg-card" id="loginCard">
+
+        <div class="login-header">
+          <div class="login-icon">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="24" fill="#eff6ff"/>
+              <path d="M24 14a5 5 0 100 10 5 5 0 000-10z" fill="#bfdbfe"/>
+              <path d="M14 36c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#2C3F31" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h2 class="reg-card__title">Acessar sua conta</h2>
+          <p class="reg-card__subtitle">Informe suas credenciais para continuar.</p>
+        </div>
+
+        <!-- Alert de erro geral -->
+        <div id="loginAlert" class="login-alert hidden">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+          <span id="loginAlertMsg"></span>
+        </div>
+
+        <form id="loginForm" novalidate>
+
+          <!-- CPF ou E-mail -->
+          <div class="form-group">
+            <label class="form-label" for="loginIdentifier">CPF ou E-mail</label>
+            <div class="form-input-wrapper">
+              <svg class="form-input-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+              <input
+                type="text"
+                id="loginIdentifier"
+                class="form-input"
+                placeholder="000.000.000-00 ou seu@email.com.br"
+                autocomplete="username"
+                inputmode="text"
+              />
+            </div>
+            <p class="form-error hidden" id="identifierError">Informe um CPF ou e-mail válido.</p>
+          </div>
+
+          <!-- Senha -->
+          <div class="form-group">
+            <div class="login-label-row">
+              <label class="form-label" for="loginPassword">Senha</label>
+              <a href="recuperar-senha.html" class="login-forgot">Esqueci minha senha</a>
+            </div>
+            <div class="form-input-wrapper">
+              <svg class="form-input-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+              <input
+                type="password"
+                id="loginPassword"
+                class="form-input form-input--no-right-icon"
+                placeholder="Sua senha"
+                autocomplete="current-password"
+              />
+              <button type="button" class="pwd-toggle" id="pwdToggle" tabindex="-1" aria-label="Mostrar senha">
+                <svg class="eye-icon" id="eyeShow" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
+                <svg class="eye-icon hidden" id="eyeHide" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 012.45 2.45l1.514 1.514a4 4 0 00-5.478-5.478z" clip-rule="evenodd"/><path d="M12.454 16.697L9.75 13.992a4 4 0 01-3.742-3.741L2.335 6.578A9.98 9.98 0 00.458 10c1.274 4.057 5.064 7 9.542 7 .847 0 1.669-.105 2.454-.303z"/></svg>
+              </button>
+            </div>
+            <p class="form-error hidden" id="passwordError">Informe sua senha.</p>
+          </div>
+
+          <!-- Lembrar -->
+          <div class="form-terms" style="margin-bottom:28px">
+            <label class="form-checkbox">
+              <input type="checkbox" id="rememberMe" />
+              <span class="form-checkbox__box"></span>
+              <span>Manter-me conectado por 30 dias</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--block" id="btnLogin">
+            <span id="btnLoginLabel">Entrar na plataforma</span>
+            <svg id="btnLoginSpinner" class="btn-spinner hidden" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-dasharray="40" stroke-dashoffset="10" /></svg>
+          </button>
+
+        </form>
+
+        <div class="login-divider">
+          <span>Não tem uma conta?</span>
+        </div>
+
+        <a href="cadastro.html" class="btn btn--ghost btn--block">
+          Criar conta gratuitamente
+        </a>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer reg-footer">
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>&copy; 2026 Licita Brasil Web Tecnologia S/A · CNPJ 00.000.000/0001-00</p>
+        <p><a href="#">Termos de Uso</a> · <a href="#">Política de Privacidade</a> · <a href="#">LGPD</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="login.js"></script>
+</body>
+</html>

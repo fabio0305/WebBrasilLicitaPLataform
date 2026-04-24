@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro de Fornecedor – Licita Brasil Web</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="cadastro.css" />
+  <link rel="stylesheet" href="fornecedor-cadastro.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="fc-body">
+
+  <!-- ══════════════════════════ HEADER ══════════════════════════ -->
+  <header class="fc-header">
+    <a href="painel.html" class="fc-header__back">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg>
+      Voltar ao painel
+    </a>
+    <a href="index.html" class="fc-header__logo">
+      <span>⚖</span>
+      <span>Licita<strong>Brasil</strong><span class="fc-header__tag">Web</span></span>
+    </a>
+    <div class="fc-header__progress-wrap">
+      <span class="fc-header__progress-label" id="fcProgressLabel">Etapa 1 de 6</span>
+      <div class="fc-header__progress-bar">
+        <div class="fc-header__progress-fill" id="fcProgressFill" style="width:16.6%"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════ LAYOUT ══════════════════════════ -->
+  <div class="fc-layout">
+
+    <!-- ── STEPPER ── -->
+    <aside class="fc-stepper" id="fcStepper">
+      <div class="fc-stepper__inner">
+        <h2 class="fc-stepper__title">Cadastro de Fornecedor</h2>
+        <p class="fc-stepper__sub">Preencha todas as etapas para habilitar sua empresa na plataforma.</p>
+
+        <ul class="fc-steps-list" id="fcStepsList">
+          <li class="fc-step-item fc-step-item--active" data-step="1">
+            <div class="fc-step-item__line-wrap">
+              <div class="fc-step-item__circle">1</div>
+              <div class="fc-step-item__line"></div>
+            </div>
+            <div class="fc-step-item__info">
+              <span class="fc-step-item__name">Identificação</span>
+              <span class="fc-step-item__desc">Dados básicos da empresa</span>
+            </div>
+          </li>
+          <li class="fc-step-item fc-step-item--pending" data-step="2">
+            <div class="fc-step-item__line-wrap">
+              <div class="fc-step-item__circle">2</div>
+              <div class="fc-step-item__line"></div>
+            </div>
+            <div class="fc-step-item__info">
+              <span class="fc-step-item__name">Endereço</span>
+              <span class="fc-step-item__desc">Localização da empresa</span>
+            </div>
+          </li>
+          <li class="fc-step-item fc-step-item--pending" data-step="3">
+            <div class="fc-step-item__line-wrap">
+              <div class="fc-step-item__circle">3</div>
+              <div class="fc-step-item__line"></div>
+            </div>
+            <div class="fc-step-item__info">
+              <span class="fc-step-item__name">Dados bancários</span>
+              <span class="fc-step-item__desc">Conta para recebimentos</span>
+            </div>
+          </li>
+          <li class="fc-step-item fc-step-item--pending" data-step="4">
+            <div class="fc-step-item__line-wrap">
+              <div class="fc-step-item__circle">4</div>
+              <div class="fc-step-item__line"></div>
+            </div>
+            <div class="fc-step-item__info">
+              <span class="fc-step-item__name">Representante legal</span>
+              <span class="fc-step-item__desc">Responsável pela empresa</span>
+            </div>
+          </li>
+          <li class="fc-step-item fc-step-item--pending" data-step="5">
+            <div class="fc-step-item__line-wrap">
+              <div class="fc-step-item__circle">5</div>
+              <div class="fc-step-item__line"></div>
+            </div>
+            <div class="fc-step-item__info">
+              <span class="fc-step-item__name">Segmentos</span>
+              <span class="fc-step-item__desc">Áreas de atuação</span>
+            </div>
+          </li>
+          <li class="fc-step-item fc-step-item--pending" data-step="6">
+            <div class="fc-step-item__line-wrap">
+              <div class="fc-step-item__circle">6</div>
+            </div>
+            <div class="fc-step-item__info">
+              <span class="fc-step-item__name">Documentos</span>
+              <span class="fc-step-item__desc">Habilitação documental</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="fc-stepper__tip">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+          Seus dados são salvos automaticamente a cada etapa.
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── FORM AREA ── -->
+    <div class="fc-form-area">
+
+      <!-- ═══════════════════════════════════════
+           ETAPA 1 – IDENTIFICAÇÃO
+      ═══════════════════════════════════════ -->
+      <div class="fc-panel" id="fcPanel1">
+        <div class="fc-panel__header">
+          <h2 class="fc-panel__title">Identificação da empresa</h2>
+          <p class="fc-panel__sub">Informe os dados básicos de identificação. Campos marcados com <span class="form-required">*</span> são obrigatórios.</p>
+        </div>
+
+        <!-- Tipo de pessoa -->
+        <div class="form-group">
+          <label class="form-label">Tipo de cadastro <span class="form-required">*</span></label>
+          <div class="fc-toggle-group" id="tipoPessoaGroup">
+            <label class="fc-toggle-opt fc-toggle-opt--active">
+              <input type="radio" name="tipoPessoa" value="PJ" checked />
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M6 6a3 3 0 116 0 3 3 0 01-6 0zm-3 8a5 5 0 0116 0H3z"/></svg>
+              Pessoa Jurídica
+            </label>
+            <label class="fc-toggle-opt">
+              <input type="radio" name="tipoPessoa" value="PF" />
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+              Pessoa Física
+            </label>
+          </div>
+        </div>
+
+        <!-- CNPJ / CPF row -->
+        <div class="fc-row">
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="cnpj">CNPJ <span class="form-required">*</span></label>
+            <div class="form-input-wrapper">
+              <svg class="form-input-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4z" clip-rule="evenodd"/></svg>
+              <input type="text" id="cnpj" class="form-input" placeholder="00.000.000/0000-00" maxlength="18" inputmode="numeric" autocomplete="off" />
+            </div>
+            <p class="form-error hidden" id="cnpjError">Informe um CNPJ válido.</p>
+          </div>
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="dataAbertura">Data de abertura <span class="form-required">*</span></label>
+            <input type="date" id="dataAbertura" class="form-input" />
+            <p class="form-error hidden" id="dataAberturaError">Informe a data de abertura.</p>
+          </div>
+        </div>
+
+        <!-- Razão social -->
+        <div class="form-group">
+          <label class="form-label" for="razaoSocial">Razão social <span class="form-required">*</span></label>
+          <input type="text" id="razaoSocial" class="form-input" placeholder="Nome empresarial completo conforme CNPJ" />
+          <p class="form-error hidden" id="razaoSocialError">Informe a razão social.</p>
+        </div>
+
+        <!-- Nome fantasia -->
+        <div class="form-group">
+          <label class="form-label" for="nomeFantasia">Nome fantasia</label>
+          <input type="text" id="nomeFantasia" class="form-input" placeholder="Nome fantasia (se houver)" />
+        </div>
+
+        <!-- Porte + Natureza jurídica -->
+        <div class="fc-row">
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="porte">Porte da empresa <span class="form-required">*</span></label>
+            <select id="porte" class="form-input fc-select">
+              <option value="">Selecione o porte</option>
+              <option value="MEI">MEI – Microempreendedor Individual</option>
+              <option value="ME">ME – Microempresa</option>
+              <option value="EPP">EPP – Empresa de Pequeno Porte</option>
+              <option value="MEDIO">Médio Porte</option>
+              <option value="GRANDE">Grande Porte</option>
+            </select>
+            <p class="form-error hidden" id="porteError">Selecione o porte.</p>
+          </div>
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="naturezaJuridica">Natureza jurídica</label>
+            <select id="naturezaJuridica" class="form-input fc-select">
+              <option value="">Selecione</option>
+              <option value="2062">Sociedade Empresária Limitada (Ltda.)</option>
+              <option value="2046">Sociedade Anônima Aberta (S.A.)</option>
+              <option value="2054">Sociedade Anônima Fechada (S.A.)</option>
+              <option value="4170">Microempreendedor Individual (MEI)</option>
+              <option value="4120">EIRELI</option>
+              <option value="2135">Sociedade Simples Limitada</option>
+              <option value="2038">Sociedade em Nome Coletivo</option>
+              <option value="3069">Fundação Privada</option>
+              <option value="3999">Associação Privada</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Inscrição Estadual + Municipal -->
+        <div class="fc-row">
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="inscricaoEstadual">Inscrição estadual</label>
+            <input type="text" id="inscricaoEstadual" class="form-input" placeholder="000.000.000.000" />
+            <label class="fc-checkbox-sm" style="margin-top:8px">
+              <input type="checkbox" id="ieIsento" />
+              <span class="form-checkbox__box"></span>
+              Isento
+            </label>
+          </div>
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="inscricaoMunicipal">Inscrição municipal</label>
+            <input type="text" id="inscricaoMunicipal" class="form-input" placeholder="0000000" />
+            <label class="fc-checkbox-sm" style="margin-top:8px">
+              <input type="checkbox" id="imIsento" />
+              <span class="form-checkbox__box"></span>
+              Isento
+            </label>
+          </div>
+        </div>
+
+        <!-- Telefone + Email -->
+        <div class="fc-row">
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="telefoneEmpresa">Telefone comercial <span class="form-required">*</span></label>
+            <div class="form-input-wrapper">
+              <svg class="form-input-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+              <input type="tel" id="telefoneEmpresa" class="form-input" placeholder="(00) 00000-0000" maxlength="15" inputmode="numeric" />
+            </div>
+            <p class="form-error hidden" id="telefoneEmpresaError">Informe um telefone válido.</p>
+          </div>
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="emailEmpresa">E-mail comercial <span class="form-required">*</span></label>
+            <div class="form-input-wrapper">
+              <svg class="form-input-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+              <input type="email" id="emailEmpresa" class="form-input" placeholder="contato@empresa.com.br" />
+            </div>
+            <p class="form-error hidden" id="emailEmpresaError">Informe um e-mail válido.</p>
+          </div>
+        </div>
+
+        <!-- Website -->
+        <div class="form-group">
+          <label class="form-label" for="website">Website</label>
+          <input type="url" id="website" class="form-input" placeholder="https://www.empresa.com.br" />
+        </div>
+
+        <div class="fc-nav">
+          <div></div>
+          <button class="btn btn--primary" id="fcNext1">
+            Próximo — Endereço
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════
+           ETAPA 2 – ENDEREÇO
+      ═══════════════════════════════════════ -->
+      <div class="fc-panel hidden" id="fcPanel2">
+        <div class="fc-panel__header">
+          <h2 class="fc-panel__title">Endereço da empresa</h2>
+          <p class="fc-panel__sub">Informe o endereço principal da sede. Digite o CEP para preenchimento automático.</p>
+        </div>
+
+        <!-- CEP -->
+        <div class="fc-row">
+          <div class="form-group fc-col-cep">
+            <label class="form-label" for="cep">CEP <span class="form-required">*</span></label>
+            <div class="form-input-wrapper">
+              <svg class="form-input-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+              <input type="text" id="cep" class="form-input" placeholder="00000-000" maxlength="9" inputmode="numeric" />
+              <button type="button" class="fc-cep-btn" id="btnBuscarCep">
+                <span id="cepBtnLabel">Buscar</span>
+                <svg id="cepSpinner" class="btn-spinner hidden" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-dasharray="40" stroke-dashoffset="10"/></svg>
+              </button>
+            </div>
+            <p class="form-error hidden" id="cepError">CEP não encontrado.</p>
+          </div>
+          <div class="form-group fc-col-uf">
+            <label class="form-label" for="uf">UF <span class="form-required">*</span></label>
+            <select id="uf" class="form-input fc-select">
+              <option value="">UF</option>
+              <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+              <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+              <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+              <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+              <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+              <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+              <option>SP</option><option>SE</option><option>TO</option>
+            </select>
+            <p class="form-error hidden" id="ufError">Selecione.</p>
+          </div>
+        </div>
+
+        <!-- Logradouro + Número -->
+        <div class="fc-row">
+          <div class="form-group fc-col-2">
+            <label class="form-label" for="logradouro">Logradouro <span class="form-required">*</span></label>
+            <input type="text" id="logradouro" class="form-input" placeholder="Rua, Avenida, Travessa..." />
+            <p class="form-error hidden" id="logradouroError">Informe o logradouro.</p>
+          </div>
+          <div class="form-group fc-col-num">
+            <label class="form-label" for="numero">Número <span class="form-required">*</span></label>
+            <input type="text" id="numero" class="form-input" placeholder="Nº" />
+            <p class="form-error hidden" id="numeroError">Informe o número.</p>
+          </div>
+        </div>
+
+        <!-- Complemento + Bairro -->
+        <div class="fc-row">
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="complemento">Complemento</label>
+            <input type="text" id="complemento" class="form-input" placeholder="Sala, Andar, Bloco..." />
+          </div>
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="bairro">Bairro <span class="form-required">*</span></label>
+            <input type="text" id="bairro" class="form-input" placeholder="Bairro" />
+            <p class="form-error hidden" id="bairroError">Informe o bairro.</p>
+          </div>
+        </div>
+
+        <!-- Município + País -->
+        <div class="fc-row">
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="municipio">Município <span class="form-required">*</span></label>
+            <input type="text" id="municipio" class="form-input" placeholder="Cidade" />
+            <p class="form-error hidden" id="municipioError">Informe o município.</p>
+          </div>
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="pais">País</label>
+            <input type="text" id="pais" class="form-input" value="Brasil" />
+          </div>
+        </div>
+
+        <div class="fc-nav">
+          <button class="btn btn--ghost" id="fcPrev2">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg>
+            Anterior
+          </button>
+          <button class="btn btn--primary" id="fcNext2">
+            Próximo — Dados bancários
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════
+           ETAPA 3 – DADOS BANCÁRIOS
+      ═══════════════════════════════════════ -->
+      <div class="fc-panel hidden" id="fcPanel3">
+        <div class="fc-panel__header">
+          <h2 class="fc-panel__title">Dados bancários</h2>
+          <p class="fc-panel__sub">Informe os dados da conta bancária para recebimento de pagamentos.</p>
+        </div>
+
+        <!-- Banco -->
+        <div class="form-group">
+          <label class="form-label" for="banco">Banco <span class="form-required">*</span></label>
+          <select id="banco" class="form-input fc-select">
+            <option value="">Selecione o banco</option>
+          </select>
+          <p class="form-error hidden" id="bancoError">Selecione o banco.</p>
+        </div>
+
+        <!-- Tipo de conta -->
+        <div class="form-group">
+          <label class="form-label">Tipo de conta <span class="form-required">*</span></label>
+          <div class="fc-toggle-group">
+            <label class="fc-toggle-opt fc-toggle-opt--active">
+              <input type="radio" name="tipoConta" value="corrente" checked />
+              Conta Corrente
+            </label>
+            <label class="fc-toggle-opt">
+              <input type="radio" name="tipoConta" value="poupanca" />
+              Conta Poupança
+            </label>
+          </div>
+        </div>
+
+        <!-- Agência + Conta -->
+        <div class="fc-row">
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="agencia">Agência <span class="form-required">*</span></label>
+            <div class="fc-digit-row">
+              <input type="text" id="agencia" class="form-input" placeholder="0000" maxlength="6" inputmode="numeric" />
+              <span class="fc-digit-sep">–</span>
+              <input type="text" id="agenciaDigito" class="form-input fc-digit-input" placeholder="X" maxlength="2" />
+            </div>
+            <label class="fc-checkbox-sm" style="margin-top:6px">
+              <input type="checkbox" id="agenciaSemDigito" />
+              <span class="form-checkbox__box"></span>
+              Sem dígito
+            </label>
+            <p class="form-error hidden" id="agenciaError">Informe a agência.</p>
+          </div>
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="conta">Conta <span class="form-required">*</span></label>
+            <div class="fc-digit-row">
+              <input type="text" id="conta" class="form-input" placeholder="000000000" maxlength="12" inputmode="numeric" />
+              <span class="fc-digit-sep">–</span>
+              <input type="text" id="contaDigito" class="form-input fc-digit-input" placeholder="X" maxlength="2" />
+            </div>
+            <p class="form-error hidden" id="contaError">Informe a conta.</p>
+          </div>
+        </div>
+
+        <!-- Titular + CPF/CNPJ do titular -->
+        <div class="fc-row">
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="titularConta">Titular da conta <span class="form-required">*</span></label>
+            <input type="text" id="titularConta" class="form-input" placeholder="Nome completo ou razão social" />
+            <p class="form-error hidden" id="titularContaError">Informe o titular.</p>
+          </div>
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="cpfCnpjTitular">CPF/CNPJ do titular <span class="form-required">*</span></label>
+            <input type="text" id="cpfCnpjTitular" class="form-input" placeholder="000.000.000-00 ou 00.000.000/0000-00" maxlength="18" inputmode="numeric" />
+            <p class="form-error hidden" id="cpfCnpjTitularError">Informe CPF ou CNPJ válido.</p>
+          </div>
+        </div>
+
+        <!-- PIX -->
+        <div class="fc-pix-section">
+          <p class="fc-pix-section__label">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg>
+            Chave PIX (opcional)
+          </p>
+          <div class="fc-row">
+            <div class="form-group fc-col-pix-tipo">
+              <label class="form-label" for="pixTipo">Tipo de chave</label>
+              <select id="pixTipo" class="form-input fc-select">
+                <option value="">Não possuo</option>
+                <option value="cpf_cnpj">CPF / CNPJ</option>
+                <option value="email">E-mail</option>
+                <option value="telefone">Telefone</option>
+                <option value="evp">Chave aleatória (EVP)</option>
+              </select>
+            </div>
+            <div class="form-group fc-col-pix-val" id="pixValorGroup" style="display:none">
+              <label class="form-label" for="pixValor">Chave PIX</label>
+              <input type="text" id="pixValor" class="form-input" placeholder="Informe a chave" />
+            </div>
+          </div>
+        </div>
+
+        <div class="fc-nav">
+          <button class="btn btn--ghost" id="fcPrev3">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg>
+            Anterior
+          </button>
+          <button class="btn btn--primary" id="fcNext3">
+            Próximo — Representante legal
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════
+           ETAPA 4 – REPRESENTANTE LEGAL
+      ═══════════════════════════════════════ -->
+      <div class="fc-panel hidden" id="fcPanel4">
+        <div class="fc-panel__header">
+          <h2 class="fc-panel__title">Representante legal</h2>
+          <p class="fc-panel__sub">Dados do responsável legal pela empresa com poderes de representação.</p>
+        </div>
+
+        <!-- Nome + CPF -->
+        <div class="fc-row">
+          <div class="form-group fc-col-2">
+            <label class="form-label" for="repNome">Nome completo <span class="form-required">*</span></label>
+            <input type="text" id="repNome" class="form-input" placeholder="Nome completo do representante" autocomplete="name" />
+            <p class="form-error hidden" id="repNomeError">Informe o nome completo.</p>
+          </div>
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="repCpf">CPF <span class="form-required">*</span></label>
+            <input type="text" id="repCpf" class="form-input" placeholder="000.000.000-00" maxlength="14" inputmode="numeric" />
+            <p class="form-error hidden" id="repCpfError">Informe um CPF válido.</p>
+          </div>
+        </div>
+
+        <!-- RG + Órgão emissor -->
+        <div class="fc-row">
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="repRg">RG</label>
+            <input type="text" id="repRg" class="form-input" placeholder="00.000.000-0" maxlength="12" />
+          </div>
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="repOrgao">Órgão emissor</label>
+            <input type="text" id="repOrgao" class="form-input" placeholder="SSP/SP" />
+          </div>
+        </div>
+
+        <!-- Data Nasc + Cargo -->
+        <div class="fc-row">
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="repNasc">Data de nascimento <span class="form-required">*</span></label>
+            <input type="date" id="repNasc" class="form-input" />
+            <p class="form-error hidden" id="repNascError">Informe a data de nascimento.</p>
+          </div>
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="repCargo">Cargo / Função <span class="form-required">*</span></label>
+            <input type="text" id="repCargo" class="form-input" placeholder="Sócio-Gerente, Diretor..." />
+            <p class="form-error hidden" id="repCargoError">Informe o cargo.</p>
+          </div>
+        </div>
+
+        <!-- Telefone + Email -->
+        <div class="fc-row">
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="repTelefone">Telefone <span class="form-required">*</span></label>
+            <div class="form-input-wrapper">
+              <svg class="form-input-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+              <input type="tel" id="repTelefone" class="form-input" placeholder="(00) 00000-0000" maxlength="15" inputmode="numeric" />
+            </div>
+            <p class="form-error hidden" id="repTelefoneError">Informe um telefone válido.</p>
+          </div>
+          <div class="form-group fc-col-1">
+            <label class="form-label" for="repEmail">E-mail <span class="form-required">*</span></label>
+            <div class="form-input-wrapper">
+              <svg class="form-input-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+              <input type="email" id="repEmail" class="form-input" placeholder="email@representante.com" />
+            </div>
+            <p class="form-error hidden" id="repEmailError">Informe um e-mail válido.</p>
+          </div>
+        </div>
+
+        <!-- Mandato -->
+        <div class="fc-fieldset">
+          <p class="fc-fieldset__legend">Validade do mandato</p>
+          <div class="fc-row">
+            <div class="form-group fc-col-1">
+              <label class="form-label" for="mandatoInicio">Início do mandato</label>
+              <input type="date" id="mandatoInicio" class="form-input" />
+            </div>
+            <div class="form-group fc-col-1">
+              <label class="form-label" for="mandatoFim">Término do mandato</label>
+              <input type="date" id="mandatoFim" class="form-input" />
+            </div>
+          </div>
+        </div>
+
+        <div class="fc-nav">
+          <button class="btn btn--ghost" id="fcPrev4">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg>
+            Anterior
+          </button>
+          <button class="btn btn--primary" id="fcNext4">
+            Próximo — Segmentos
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════
+           ETAPA 5 – SEGMENTOS
+      ═══════════════════════════════════════ -->
+      <div class="fc-panel hidden" id="fcPanel5">
+        <div class="fc-panel__header">
+          <h2 class="fc-panel__title">Segmentos de atuação</h2>
+          <p class="fc-panel__sub">Selecione ao menos um segmento que representa os produtos ou serviços da sua empresa.</p>
+        </div>
+
+        <!-- Search -->
+        <div class="form-group">
+          <label class="form-label" for="segSearch">Pesquisar segmentos</label>
+          <div class="form-input-wrapper">
+            <svg class="form-input-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+            <input type="text" id="segSearch" class="form-input" placeholder="Digite para filtrar segmentos..." />
+          </div>
+        </div>
+
+        <p class="form-error hidden" id="segmentoError">Selecione pelo menos um segmento.</p>
+
+        <!-- Segments grid -->
+        <div class="fc-segments-grid" id="fcSegmentsGrid">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Selected tags -->
+        <div class="fc-selected-segs" id="fcSelectedSegs" style="display:none">
+          <p class="fc-selected-segs__label">Selecionados:</p>
+          <div class="fc-selected-segs__tags" id="fcSelectedTags"></div>
+        </div>
+
+        <div class="fc-nav">
+          <button class="btn btn--ghost" id="fcPrev5">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg>
+            Anterior
+          </button>
+          <button class="btn btn--primary" id="fcNext5">
+            Próximo — Documentos
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════
+           ETAPA 6 – DOCUMENTOS
+      ═══════════════════════════════════════ -->
+      <div class="fc-panel hidden" id="fcPanel6">
+        <div class="fc-panel__header">
+          <h2 class="fc-panel__title">Modelos de documentos</h2>
+          <p class="fc-panel__sub">Envie os documentos de habilitação. Documentos marcados como <strong>Obrigatório</strong> são necessários para participar de licitações.</p>
+        </div>
+
+        <div class="fc-docs-list" id="fcDocsList">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="fc-docs-notice">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+          Os documentos podem ser enviados agora ou posteriormente pelo painel do fornecedor. Formatos aceitos: PDF, JPG, PNG (máx. 10 MB cada).
+        </div>
+
+        <div class="fc-nav">
+          <button class="btn btn--ghost" id="fcPrev6">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg>
+            Anterior
+          </button>
+          <button class="btn btn--primary" id="fcFinish">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Concluir cadastro
+          </button>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════
+           SUCESSO
+      ═══════════════════════════════════════ -->
+      <div class="fc-panel fc-panel--success hidden" id="fcPanelSuccess">
+        <div class="fc-success">
+          <div class="fc-success__icon">
+            <svg viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="32" fill="#d1fae5"/>
+              <path d="M20 32l8 8 16-16" stroke="#059669" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2 class="fc-success__title">Cadastro enviado com sucesso!</h2>
+          <p class="fc-success__desc">O cadastro do seu fornecedor foi registrado e está em análise pela equipe da Licita Brasil Web. Você receberá um e-mail de confirmação em breve.</p>
+          <div class="fc-success__actions">
+            <a href="painel.html" class="btn btn--primary">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+              Ir para o painel
+            </a>
+            <a href="#" class="btn btn--ghost">Ver status do cadastro</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /fc-form-area -->
+  </div><!-- /fc-layout -->
+
+  <script src="fornecedor-cadastro.js"></script>
+</body>
+</html>

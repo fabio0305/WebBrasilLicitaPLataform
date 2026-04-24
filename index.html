@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Licita Brasil Web – A Plataforma de Licitações Mais Completa do Brasil</title>
+  <meta name="description" content="Conectamos órgãos públicos a fornecedores de produtos e serviços com tecnologia, transparência e agilidade." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ============================================================ HEADER -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+
+      <a href="#" class="logo">
+        <span class="logo__icon">⚖</span>
+        <span class="logo__text">Licita<strong>Brasil</strong><span class="logo__tag">Web</span></span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <ul class="nav__list">
+
+          <li class="nav__item nav__item--dropdown">
+            <button class="nav__link nav__link--btn">
+              Comprador <svg class="icon-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="dropdown">
+              <a href="#" class="dropdown__item">Órgãos Públicos</a>
+              <a href="#" class="dropdown__item">Empresas Estatais</a>
+              <a href="#" class="dropdown__item">Sistema S</a>
+            </div>
+          </li>
+
+          <li class="nav__item">
+            <a href="#fornecedor" class="nav__link">Fornecedor</a>
+          </li>
+
+          <li class="nav__item nav__item--dropdown">
+            <button class="nav__link nav__link--btn">
+              Serviços <svg class="icon-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="dropdown">
+              <a href="#" class="dropdown__item">Pregão Eletrônico</a>
+              <a href="#" class="dropdown__item">Dispensa Eletrônica</a>
+              <a href="#" class="dropdown__item">Credenciamento</a>
+              <a href="#" class="dropdown__item">Cotação Eletrônica</a>
+            </div>
+          </li>
+
+          <li class="nav__item">
+            <a href="#sobre" class="nav__link">Sobre</a>
+          </li>
+
+          <li class="nav__item">
+            <a href="#busca" class="nav__link">Licitações</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a href="cadastro.html" class="btn btn--ghost">Cadastrar</a>
+        <a href="login.html" class="btn btn--primary">Acessar Plataforma</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ============================================================ HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__bg-shapes">
+      <div class="shape shape--1"></div>
+      <div class="shape shape--2"></div>
+      <div class="shape shape--3"></div>
+    </div>
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <span class="badge badge--blue">Nova Lei 14.133/2021 — Estamos preparados</span>
+        <h1 class="hero__title">
+          a <strong>plataforma de licitações</strong><br />
+          mais completa do Brasil
+        </h1>
+        <p class="hero__subtitle">
+          Conectamos órgãos públicos a fornecedores de produtos e serviços com tecnologia de ponta, total transparência e suporte especializado em cada etapa do processo.
+        </p>
+        <div class="hero__actions">
+          <a href="cadastro.html" class="btn btn--primary btn--lg">Cadastrar Gratuitamente</a>
+          <a href="#busca" class="btn btn--outline btn--lg">
+            <svg viewBox="0 0 20 20" fill="currentColor" class="btn__icon"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+            Pesquisar Licitações
+          </a>
+        </div>
+        <div class="hero__trust">
+          <span class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            Homologado pelo TCU
+          </span>
+          <span class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            Conforme LGPD
+          </span>
+          <span class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            Suporte 24/7
+          </span>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="dashboard-card">
+          <div class="dashboard-card__header">
+            <span class="dashboard-card__dot dot--green"></span>
+            <span class="dashboard-card__dot dot--yellow"></span>
+            <span class="dashboard-card__dot dot--red"></span>
+            <span class="dashboard-card__title">Painel de Licitações</span>
+          </div>
+          <div class="dashboard-card__body">
+            <div class="dash-stat">
+              <span class="dash-stat__label">Pregões Ativos</span>
+              <span class="dash-stat__value dash-stat__value--green">1.842</span>
+            </div>
+            <div class="dash-stat">
+              <span class="dash-stat__label">Encerrando Hoje</span>
+              <span class="dash-stat__value dash-stat__value--orange">47</span>
+            </div>
+            <div class="dash-stat">
+              <span class="dash-stat__label">Novas Hoje</span>
+              <span class="dash-stat__value dash-stat__value--blue">213</span>
+            </div>
+            <div class="dash-progress">
+              <div class="dash-progress__label">
+                <span>Pregão #2024-0847</span>
+                <span class="dash-progress__badge">Em andamento</span>
+              </div>
+              <div class="dash-progress__bar"><div class="dash-progress__fill" style="width:68%"></div></div>
+              <p class="dash-progress__sub">Tecnologia da Informação · R$ 840.000</p>
+            </div>
+            <div class="dash-progress">
+              <div class="dash-progress__label">
+                <span>Dispensa #2024-0124</span>
+                <span class="dash-progress__badge dash-progress__badge--purple">Homologado</span>
+              </div>
+              <div class="dash-progress__bar"><div class="dash-progress__fill" style="width:100%"></div></div>
+              <p class="dash-progress__sub">Material de Escritório · R$ 24.500</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ STATS -->
+  <section class="stats" id="stats">
+    <div class="container stats__grid">
+      <div class="stat-item" data-count="128400">
+        <span class="stat-item__number" id="stat-0">0</span>
+        <span class="stat-item__label">Licitações Realizadas</span>
+      </div>
+      <div class="stat-item" data-count="47">
+        <span class="stat-item__number" id="stat-1">0</span>
+        <span class="stat-item__label">Bilhões em Contratos</span>
+        <span class="stat-item__suffix">R$</span>
+      </div>
+      <div class="stat-item" data-count="3800">
+        <span class="stat-item__number" id="stat-2">0</span>
+        <span class="stat-item__label">Órgãos Cadastrados</span>
+      </div>
+      <div class="stat-item" data-count="89000">
+        <span class="stat-item__number" id="stat-3">0</span>
+        <span class="stat-item__label">Fornecedores Ativos</span>
+      </div>
+      <div class="stat-item" data-count="28">
+        <span class="stat-item__number" id="stat-4">0</span>
+        <span class="stat-item__label">% de Economia Gerada</span>
+        <span class="stat-item__suffix">até</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ PERFIS -->
+  <section class="profiles section" id="perfis">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge--light">Para todos os perfis</span>
+        <h2 class="section-title">Uma plataforma completa para<br /><strong>cada parte do processo</strong></h2>
+        <p class="section-subtitle">Seja você comprador, fornecedor ou cidadão, temos a solução ideal para suas necessidades.</p>
+      </div>
+      <div class="profiles__grid">
+
+        <div class="profile-card profile-card--blue">
+          <div class="profile-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#1B4FD8" fill-opacity=".15"/><path d="M24 14C18.477 14 14 18.477 14 24s4.477 10 10 10 10-4.477 10-10S29.523 14 24 14zm0 2a8 8 0 110 16 8 8 0 010-16z" fill="#1B4FD8"/><path d="M20 24h8M24 20v8" stroke="#1B4FD8" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="profile-card__title">Comprador</h3>
+          <p class="profile-card__desc">Simplifique seus processos licitatórios com ferramentas automáticas, relatórios inteligentes e suporte especializado da Nova Lei 14.133.</p>
+          <ul class="profile-card__list">
+            <li>Pregão Eletrônico integrado</li>
+            <li>Gestão de contratos digital</li>
+            <li>Relatórios automáticos de conformidade</li>
+            <li>Publicação no PNCP automática</li>
+          </ul>
+          <a href="cadastro.html" class="btn btn--primary btn--sm">Sou Comprador</a>
+        </div>
+
+        <div class="profile-card profile-card--green">
+          <div class="profile-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#059669" fill-opacity=".15"/><path d="M16 30V22a2 2 0 012-2h12a2 2 0 012 2v8" stroke="#059669" stroke-width="2" stroke-linecap="round"/><path d="M12 30h24M20 20v-4a4 4 0 018 0v4" stroke="#059669" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="profile-card__title">Fornecedor</h3>
+          <p class="profile-card__desc">Encontre oportunidades de negócio com o governo, gerencie propostas e acompanhe licitações em todo o território nacional.</p>
+          <ul class="profile-card__list">
+            <li>Alertas de licitações por segmento</li>
+            <li>Gestão de propostas online</li>
+            <li>Certificado digital integrado</li>
+            <li>Relatório de desempenho</li>
+          </ul>
+          <a href="cadastro.html" class="btn btn--success btn--sm">Sou Fornecedor</a>
+        </div>
+
+        <div class="profile-card profile-card--purple">
+          <div class="profile-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#7C3AED" fill-opacity=".15"/><path d="M24 14a4 4 0 100 8 4 4 0 000-8zM14 34c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="profile-card__title">Cidadão</h3>
+          <p class="profile-card__desc">Acompanhe as licitações do seu município e estado com total transparência. Exercite o controle social dos gastos públicos.</p>
+          <ul class="profile-card__list">
+            <li>Consulta pública gratuita</li>
+            <li>Acompanhamento em tempo real</li>
+            <li>Denúncias e ouvidoria</li>
+            <li>Relatórios de gastos públicos</li>
+          </ul>
+          <a href="cadastro.html" class="btn btn--purple btn--sm">Quero Acompanhar</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ BUSCA -->
+  <section class="search-section section" id="busca">
+    <div class="container">
+      <div class="section-header section-header--light">
+        <h2 class="section-title section-title--white">Encontre licitações em todo o Brasil</h2>
+        <p class="section-subtitle section-subtitle--light">Mais de 128 mil processos ativos de todos os estados e municípios brasileiros.</p>
+      </div>
+      <div class="search-box">
+        <div class="search-box__filters">
+          <select class="search-box__select">
+            <option value="">Todos os estados</option>
+            <option>São Paulo</option><option>Rio de Janeiro</option><option>Minas Gerais</option>
+            <option>Bahia</option><option>Paraná</option><option>Rio Grande do Sul</option>
+            <option>Santa Catarina</option><option>Goiás</option><option>Pernambuco</option>
+            <option>Ceará</option>
+          </select>
+          <select class="search-box__select">
+            <option value="">Tipo de processo</option>
+            <option>Pregão Eletrônico</option>
+            <option>Dispensa Eletrônica</option>
+            <option>Concorrência</option>
+            <option>Tomada de Preços</option>
+            <option>Credenciamento</option>
+            <option>Cotação Eletrônica</option>
+          </select>
+          <select class="search-box__select">
+            <option value="">Segmento</option>
+            <option>Tecnologia da Informação</option>
+            <option>Obras e Serviços de Engenharia</option>
+            <option>Material de Consumo</option>
+            <option>Serviços Gerais</option>
+            <option>Saúde</option>
+            <option>Educação</option>
+          </select>
+        </div>
+        <div class="search-box__input-row">
+          <input type="text" class="search-box__input" placeholder="Busque por objeto, número do processo, órgão ou palavra-chave..." />
+          <button class="btn btn--primary btn--lg search-box__btn">
+            <svg viewBox="0 0 20 20" fill="currentColor" class="btn__icon"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+            Buscar
+          </button>
+        </div>
+      </div>
+      <div class="search-tags">
+        <span class="search-tag">Material de Escritório</span>
+        <span class="search-tag">Computadores</span>
+        <span class="search-tag">Serviços de Limpeza</span>
+        <span class="search-tag">Veículos</span>
+        <span class="search-tag">Obras Civis</span>
+        <span class="search-tag">Medicamentos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ COMO FUNCIONA -->
+  <section class="how-it-works section" id="como-funciona">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge--light">Processo simplificado</span>
+        <h2 class="section-title">Como funciona a <strong>Licita Brasil Web</strong></h2>
+        <p class="section-subtitle">Em poucos passos, seu processo licitatório está publicado, gerenciado e concluído.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step__number">01</div>
+          <div class="step__icon">
+            <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#EEF2FF"/><path d="M12 20h16M20 12v16" stroke="#1B4FD8" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="step__title">Cadastro e Habilitação</h3>
+          <p class="step__desc">Cadastre seu órgão ou empresa em minutos. Validamos seus dados e habilitamos o acesso à plataforma.</p>
+        </div>
+        <div class="step__connector"></div>
+        <div class="step">
+          <div class="step__number">02</div>
+          <div class="step__icon">
+            <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#EEF2FF"/><path d="M14 20h12M14 15h8M14 25h6" stroke="#1B4FD8" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="step__title">Publicação do Edital</h3>
+          <p class="step__desc">Monte e publique seu edital com modelos prontos e em conformidade com a Lei 14.133/2021.</p>
+        </div>
+        <div class="step__connector"></div>
+        <div class="step">
+          <div class="step__number">03</div>
+          <div class="step__icon">
+            <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#EEF2FF"/><path d="M20 13v7l4 4" stroke="#1B4FD8" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="step__title">Recebimento de Propostas</h3>
+          <p class="step__desc">Os fornecedores enviam suas propostas digitalmente. O sistema organiza e valida tudo automaticamente.</p>
+        </div>
+        <div class="step__connector"></div>
+        <div class="step">
+          <div class="step__number">04</div>
+          <div class="step__icon">
+            <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#EEF2FF"/><path d="M14 20l4 4 8-8" stroke="#1B4FD8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="step__title">Julgamento e Homologação</h3>
+          <p class="step__desc">Realize a sessão pública online, julgue as propostas e homologue o resultado — tudo na plataforma.</p>
+        </div>
+        <div class="step__connector"></div>
+        <div class="step">
+          <div class="step__number">05</div>
+          <div class="step__icon">
+            <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#EEF2FF"/><path d="M13 20h14M20 13h7a2 2 0 012 2v10a2 2 0 01-2 2H13a2 2 0 01-2-2V15a2 2 0 012-2h7z" stroke="#1B4FD8" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="step__title">Contrato Digital</h3>
+          <p class="step__desc">Assine o contrato eletronicamente, gerencie aditivos e acompanhe a execução em tempo real.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ DIFERENCIAIS -->
+  <section class="features section" id="diferenciais">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge--light">Por que escolher a Licita Brasil Web</span>
+        <h2 class="section-title">Tecnologia e suporte que fazem a <strong>diferença</strong></h2>
+      </div>
+      <div class="features__grid">
+
+        <div class="feature-card">
+          <div class="feature-card__icon feature-card__icon--blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="feature-card__title">100% Conforme a Lei 14.133</h3>
+          <p class="feature-card__desc">Plataforma totalmente atualizada com a Nova Lei de Licitações e Contratos Administrativos.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon feature-card__icon--green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="feature-card__title">Processos até 5x mais rápidos</h3>
+          <p class="feature-card__desc">Automações inteligentes reduzem o tempo dos processos licitatórios e eliminam retrabalho.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon feature-card__icon--orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="feature-card__title">Suporte Especializado</h3>
+          <p class="feature-card__desc">Equipe de especialistas em licitações disponível por telefone, WhatsApp, e-mail e chat 24/7.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon feature-card__icon--purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="feature-card__title">Relatórios e BI Integrado</h3>
+          <p class="feature-card__desc">Dashboards gerenciais em tempo real para acompanhar gastos, prazos e desempenho dos processos.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon feature-card__icon--teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+          </div>
+          <h3 class="feature-card__title">Alertas Inteligentes</h3>
+          <p class="feature-card__desc">Receba notificações automáticas de novas licitações por segmento, região e valor estimado.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon feature-card__icon--red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3 class="feature-card__title">Segurança e LGPD</h3>
+          <p class="feature-card__desc">Infraestrutura com criptografia de ponta a ponta, certificação ICP-Brasil e conformidade total com a LGPD.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ DEPOIMENTOS -->
+  <section class="testimonials section" id="depoimentos">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge--light">Depoimentos</span>
+        <h2 class="section-title">O que nossos clientes <strong>dizem sobre nós</strong></h2>
+      </div>
+      <div class="testimonials__grid">
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__text">"Desde que adotamos a Licita Brasil Web, reduzimos em 60% o tempo dos nossos pregões. O suporte é excepcional e a equipe sempre resolve qualquer dúvida rapidamente."</p>
+          <div class="testimonial-card__author">
+            <div class="author-avatar author-avatar--1">MO</div>
+            <div>
+              <strong>Marcos Oliveira</strong>
+              <span>Secretário de Compras – Prefeitura de Campinas/SP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card testimonial-card--featured">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__text">"A plataforma é muito intuitiva. Consegui publicar minha primeira licitação sem precisar de treinamento extenso. O sistema guia você em cada etapa do processo."</p>
+          <div class="testimonial-card__author">
+            <div class="author-avatar author-avatar--2">AP</div>
+            <div>
+              <strong>Ana Paula Ferreira</strong>
+              <span>Pregoeira – Câmara Municipal de Florianópolis/SC</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__text">"Como fornecedor, encontrei dezenas de oportunidades que nunca ficaria sabendo. Os alertas automáticos são um diferencial enorme para quem quer vender para o governo."</p>
+          <div class="testimonial-card__author">
+            <div class="author-avatar author-avatar--3">RS</div>
+            <div>
+              <strong>Ricardo Santos</strong>
+              <span>Diretor Comercial – Tech Solutions Ltda.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__text">"A integração automática com o PNCP e o Diário Oficial nos poupou horas de trabalho manual. A conformidade com a Nova Lei ficou muito mais fácil de garantir."</p>
+          <div class="testimonial-card__author">
+            <div class="author-avatar author-avatar--4">CM</div>
+            <div>
+              <strong>Carla Mendonça</strong>
+              <span>Assessora Jurídica – Governo do Estado do Paraná</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ NOTICIAS -->
+  <section class="news section" id="noticias">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge--light">Blog &amp; Notícias</span>
+        <h2 class="section-title">Fique por dentro das <strong>novidades em licitações</strong></h2>
+      </div>
+      <div class="news__grid">
+
+        <article class="news-card news-card--featured">
+          <div class="news-card__image news-card__image--1">
+            <span class="news-card__category">Lei 14.133</span>
+          </div>
+          <div class="news-card__body">
+            <span class="news-card__date">18 de abril de 2026</span>
+            <h3 class="news-card__title">Obrigatoriedade da Nova Lei de Licitações: prazo final e o que muda para os municípios</h3>
+            <p class="news-card__excerpt">Com a entrada em vigor definitiva da Lei 14.133/2021, entenda os principais impactos para gestores públicos e como se adequar.</p>
+            <a href="#" class="news-card__link">Ler artigo completo →</a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="news-card__image news-card__image--2">
+            <span class="news-card__category">Tecnologia</span>
+          </div>
+          <div class="news-card__body">
+            <span class="news-card__date">12 de abril de 2026</span>
+            <h3 class="news-card__title">IA nas licitações: como a inteligência artificial está revolucionando as compras públicas</h3>
+            <a href="#" class="news-card__link">Ler artigo →</a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="news-card__image news-card__image--3">
+            <span class="news-card__category">PNCP</span>
+          </div>
+          <div class="news-card__body">
+            <span class="news-card__date">05 de abril de 2026</span>
+            <h3 class="news-card__title">Integração PNCP: tudo o que você precisa saber sobre o Portal Nacional de Contratações Públicas</h3>
+            <a href="#" class="news-card__link">Ler artigo →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ CTA FINAL -->
+  <section class="cta-section section" id="cta">
+    <div class="container cta-section__inner">
+      <div class="cta-section__content">
+        <h2 class="cta-section__title">Pronto para modernizar suas licitações?</h2>
+        <p class="cta-section__subtitle">Junte-se a mais de 3.800 órgãos públicos que já utilizam a plataforma mais completa do Brasil.</p>
+        <div class="cta-section__actions">
+          <a href="cadastro.html" class="btn btn--white btn--lg">Cadastrar Gratuitamente</a>
+          <a href="#" class="btn btn--outline-white btn--lg">Falar com Especialista</a>
+        </div>
+      </div>
+      <div class="cta-section__visual">
+        <div class="cta-phones">
+          <div class="cta-phone cta-phone--whatsapp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            (11) 4000-0000
+          </div>
+          <div class="cta-phone cta-phone--mail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            contato@licitabrasil.web.br
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container footer__top">
+      <div class="footer__brand">
+        <a href="#" class="logo logo--white">
+          <span class="logo__icon">⚖</span>
+          <span class="logo__text">Licita<strong>Brasil</strong><span class="logo__tag">Web</span></span>
+        </a>
+        <p class="footer__tagline">A plataforma de licitações mais completa e transparente do Brasil.</p>
+        <div class="footer__social">
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <h4 class="footer__col-title">Plataforma</h4>
+          <ul>
+            <li><a href="#">Para Compradores</a></li>
+            <li><a href="#">Para Fornecedores</a></li>
+            <li><a href="#">Para Cidadãos</a></li>
+            <li><a href="#">Pregão Eletrônico</a></li>
+            <li><a href="#">Dispensa Eletrônica</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Recursos</h4>
+          <ul>
+            <li><a href="#">Blog e Notícias</a></li>
+            <li><a href="#">Base de Conhecimento</a></li>
+            <li><a href="#">Vídeo Tutoriais</a></li>
+            <li><a href="#">Webinars</a></li>
+            <li><a href="#">Lei 14.133 Comentada</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Empresa</h4>
+          <ul>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Carreiras</a></li>
+            <li><a href="#">Imprensa</a></li>
+            <li><a href="#">Parceiros</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__col-title">Legal</h4>
+          <ul>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Política LGPD</a></li>
+            <li><a href="#">Código de Ética</a></li>
+            <li><a href="#">Acessibilidade</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>&copy; 2026 Licita Brasil Web Tecnologia S/A · CNPJ 00.000.000/0001-00</p>
+        <p>Av. Paulista, 1000 – Bela Vista, São Paulo – SP · CEP 01310-100</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
