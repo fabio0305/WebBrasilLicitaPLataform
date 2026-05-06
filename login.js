@@ -63,6 +63,13 @@ function hideAlert() {
   loginAlert.classList.add('hidden');
 }
 
+function showPendingApproval() {
+  // Hide form, show pending approval message
+  loginForm.classList.add('hidden');
+  const pending = document.getElementById('pendingApprovalMsg');
+  if (pending) pending.classList.remove('hidden');
+}
+
 function showFieldError(input, errEl, msg) {
   input.classList.add('form-input--error');
   errEl.textContent = msg;
@@ -113,6 +120,15 @@ loginForm.addEventListener('submit', async (e) => {
     const data = await r.json().catch(() => ({}));
 
     if (r.ok) {
+      // Check onboarding status before redirecting
+      if (data.onboardingStatus === 'PENDING') {
+        showPendingApproval();
+        return;
+      }
+      if (data.onboardingStatus === 'REJECTED') {
+        showAlert('Seu cadastro não foi aprovado pelo administrador. Entre em contato com o suporte.');
+        return;
+      }
       window.location.href = data.redirectTo || '/app';
       return;
     }
@@ -121,6 +137,10 @@ loginForm.addEventListener('submit', async (e) => {
       showAlert('CPF/e-mail ou senha incorretos. Verifique seus dados e tente novamente.');
       loginIdentifier.classList.add('form-input--error');
       loginPassword.classList.add('form-input--error');
+    } else if (r.status === 403 && data.error === 'ACCOUNT_PENDING_APPROVAL') {
+      showPendingApproval();
+    } else if (r.status === 403 && data.error === 'ACCOUNT_REJECTED') {
+      showAlert('Seu cadastro não foi aprovado pelo administrador. Entre em contato com o suporte.');
     } else if (r.status === 403 && data.error === 'ACCOUNT_DISABLED') {
       showAlert('Sua conta está desativada. Entre em contato com o suporte.');
     } else if (r.status === 429) {
