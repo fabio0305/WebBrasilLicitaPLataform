@@ -2,6 +2,19 @@
    LICITA BRASIL WEB – Scripts
    ================================================================ */
 
+// ---- Smooth scroll sem # na URL ----
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('a[href^="#"]');
+  if (!link) return;
+  const target = link.getAttribute('href');
+  if (target === '#' || target === 'javascript:void(0)') return;
+  const el = document.querySelector(target);
+  if (!el) return;
+  e.preventDefault();
+  el.scrollIntoView({ behavior: 'smooth' });
+  history.replaceState(null, '', location.pathname + location.search);
+});
+
 // ---- Header scroll shadow ----
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
