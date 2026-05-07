@@ -658,6 +658,8 @@ function goToStep4() {
    ================================================================ */
 
 function goToSuccess() {
+  const el = document.getElementById('successEmail');
+  if (el) el.textContent = state.email || '';
   showStep('stepSuccess');
   markDone('prog-4');
 }
