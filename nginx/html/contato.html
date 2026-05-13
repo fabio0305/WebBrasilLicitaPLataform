@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fale com Especialistas – Licita Brasil Web</title>
+  <meta name="description" content="Entre em contato com o suporte especializado da Licita Brasil Web." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #111827; min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* --- NAV --- */
+    .nav { background: #fff; border-bottom: 1px solid #e5e7eb; height: 64px; display: flex; align-items: center; padding: 0 24px; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .nav__logo { text-decoration: none; font-size: 1.25rem; font-weight: 800; color: #1e3a8a; }
+    .nav__logo strong { color: #1e3a8a; }
+    .nav__logo .tag { font-size: .82rem; font-weight: 600; color: #4b5563; }
+    .nav__links { display: flex; align-items: center; gap: 16px; }
+    .nav__back { color: #374151; text-decoration: none; font-size: .9rem; }
+    .nav__back:hover { color: #1e3a8a; }
+    .nav__btn { background: #2c3f31; color: #fff; padding: 8px 18px; border-radius: 8px; text-decoration: none; font-size: .9rem; font-weight: 600; }
+    .nav__btn:hover { background: #1e2e22; }
+
+    /* --- HERO --- */
+    .hero { background: linear-gradient(135deg, #1e3a8a 0%, #2c3f31 100%); color: #fff; padding: 56px 24px 48px; text-align: center; }
+    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 12px; }
+    .hero p { font-size: 1.05rem; opacity: .88; }
+
+    /* --- LAYOUT --- */
+    .page-body { max-width: 980px; margin: 0 auto; padding: 48px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; flex: 1; }
+    @media (max-width: 680px) { .page-body { grid-template-columns: 1fr; padding: 32px 16px; } }
+
+    /* --- INFO CARDS --- */
+    .info-col h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 24px; }
+    .info-card { background: #fff; border-radius: 12px; padding: 20px 24px; border: 1px solid #e5e7eb; display: flex; gap: 16px; align-items: flex-start; margin-bottom: 20px; }
+    .info-card__icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .info-card__icon--blue { background: #eff6ff; }
+    .info-card__icon--green { background: #f0fdf4; }
+    .info-card__icon--yellow { background: #fef3c7; }
+    .info-card__title { font-weight: 700; margin-bottom: 4px; font-size: .95rem; }
+    .info-card__link { color: #1e3a8a; text-decoration: none; font-weight: 600; font-size: .95rem; }
+    .info-card__link:hover { text-decoration: underline; }
+    .info-card__link--green { color: #166534; }
+    .info-card__sub { color: #6b7280; font-size: .83rem; margin-top: 4px; }
+    .wa-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; background: #25d366; color: #fff; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-size: .88rem; font-weight: 600; }
+    .wa-btn:hover { background: #1ebe5a; }
+
+    /* --- FORM --- */
+    .form-col { background: #fff; border-radius: 16px; padding: 32px; border: 1px solid #e5e7eb; box-shadow: 0 4px 24px rgba(0,0,0,.06); }
+    .form-col h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 24px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+    @media (max-width: 460px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: .85rem; font-weight: 600; color: #374151; margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 8px;
+      font-size: .93rem; color: #111827; background: #fff; outline: none; font-family: inherit;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #1e3a8a; box-shadow: 0 0 0 3px rgba(30,58,138,.1); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group select { cursor: pointer; }
+    .submit-btn { width: 100%; background: #2c3f31; color: #fff; border: none; border-radius: 10px; padding: 13px 24px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: background .2s; font-family: inherit; }
+    .submit-btn:hover:not(:disabled) { background: #1e2e22; }
+    .submit-btn:disabled { background: #9ca3af; cursor: not-allowed; }
+    .alert { border-radius: 8px; padding: 10px 14px; font-size: .88rem; margin-bottom: 16px; }
+    .alert--error { background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; }
+    .alert--success { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+    .success-screen { text-align: center; padding: 32px 0; }
+    .success-screen .big-icon { font-size: 3rem; margin-bottom: 16px; }
+    .success-screen h3 { font-size: 1.1rem; font-weight: 700; color: #166534; margin-bottom: 8px; }
+    .success-screen p { color: #374151; font-size: .93rem; margin-bottom: 24px; }
+    .success-screen button { background: #2c3f31; color: #fff; border: none; border-radius: 8px; padding: 10px 24px; font-weight: 600; cursor: pointer; font-family: inherit; font-size: .93rem; }
+
+    /* --- FOOTER --- */
+    footer { text-align: center; padding: 24px; color: #9ca3af; font-size: .83rem; border-top: 1px solid #e5e7eb; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="/" class="nav__logo">Licita<strong>Brasil</strong><span class="tag">Web</span></a>
+    <div class="nav__links">
+      <a href="/" class="nav__back">← Voltar ao início</a>
+      <a href="/login" class="nav__btn">Entrar</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Fale com nossos Especialistas</h1>
+    <p>Estamos prontos para ajudar você em cada etapa do processo licitatório.</p>
+  </div>
+
+  <!-- BODY -->
+  <div class="page-body">
+
+    <!-- Canais -->
+    <div class="info-col">
+      <h2>Canais de atendimento</h2>
+
+      <div class="info-card">
+        <div class="info-card__icon info-card__icon--blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/>
+          </svg>
+        </div>
+        <div>
+          <div class="info-card__title">E-mail de Suporte</div>
+          <a href="mailto:suporte@licitabrasilweb.com.br" class="info-card__link">suporte@licitabrasilweb.com.br</a>
+          <div class="info-card__sub">Respondemos em até 24 horas úteis</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card__icon info-card__icon--green">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#25d366">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="info-card__title">WhatsApp</div>
+          <a href="https://wa.me/5531982667628" target="_blank" rel="noopener noreferrer" class="info-card__link info-card__link--green">(31) 98266-7628</a>
+          <div class="info-card__sub">Atendimento rápido pelo WhatsApp</div>
+          <a href="https://wa.me/5531982667628" target="_blank" rel="noopener noreferrer" class="wa-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Abrir WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card__icon info-card__icon--yellow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div>
+          <div class="info-card__title">Horário de Atendimento</div>
+          <div style="color:#374151;font-size:.92rem;">Segunda a Sexta: 8h às 18h</div>
+          <div class="info-card__sub">Suporte urgente disponível 24/7</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formulário -->
+    <div class="form-col">
+      <h2>Envie uma mensagem</h2>
+
+      <div id="success-screen" class="success-screen" style="display:none;">
+        <div class="big-icon">✅</div>
+        <h3>Mensagem enviada!</h3>
+        <p>Nossa equipe entrará em contato em breve pelo e-mail informado.</p>
+        <button onclick="resetForm()">Enviar outra mensagem</button>
+      </div>
+
+      <form id="contact-form" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Nome completo *</label>
+            <input type="text" id="name" name="name" required placeholder="Seu nome" />
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" required placeholder="seu@email.com" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Telefone / WhatsApp</label>
+            <input type="tel" id="phone" name="phone" placeholder="(31) 00000-0000" />
+          </div>
+          <div class="form-group">
+            <label for="subject">Assunto</label>
+            <select id="subject" name="subject">
+              <option value="">Selecione...</option>
+              <option>Dúvida sobre a plataforma</option>
+              <option>Suporte técnico</option>
+              <option>Pregão Eletrônico</option>
+              <option>Dispensa Eletrônica</option>
+              <option>Cadastro de órgão</option>
+              <option>Cadastro de fornecedor</option>
+              <option>Comercial / Planos</option>
+              <option>Outro</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Mensagem *</label>
+          <textarea id="message" name="message" required placeholder="Descreva sua dúvida ou necessidade..."></textarea>
+        </div>
+
+        <div id="error-msg" class="alert alert--error" style="display:none;"></div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">Enviar mensagem</button>
+      </form>
+    </div>
+
+  </div>
+
+  <footer>
+    © <script>document.write(new Date().getFullYear())</script> Licita Brasil Web. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    async function submitForm(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const errDiv = document.getElementById('error-msg');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      errDiv.style.display = 'none';
+
+      const body = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value,
+      };
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+        const data = await res.json();
+        if (!res.ok || !data.ok) throw new Error(data.error || 'Erro ao enviar mensagem.');
+        document.getElementById('contact-form').style.display = 'none';
+        document.getElementById('success-screen').style.display = 'block';
+      } catch (err) {
+        errDiv.textContent = err.message || 'Erro ao enviar mensagem. Tente novamente.';
+        errDiv.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Enviar mensagem';
+      }
+    }
+
+    function resetForm() {
+      document.getElementById('contact-form').reset();
+      document.getElementById('contact-form').style.display = 'block';
+      document.getElementById('success-screen').style.display = 'none';
+      document.getElementById('error-msg').style.display = 'none';
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = false;
+      btn.textContent = 'Enviar mensagem';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+# Environment
+.env
+*.env.local
+
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Build outputs
+dist/
+build/
+*/dist/
+*/build/
+
+# TypeScript
+*.js.map
+*.d.ts
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Docker volumes
+postgres_data/
+
+# SSL certs (managed by Certbot at runtime)
+*.pem
+*.key
+*.crt
