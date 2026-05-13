@@ -154,7 +154,10 @@ WebBrasilLicitaPLataform/
 │   ├── html/                 # Landing pages estáticas
 │   └── conf.d/               # Configuração do Nginx
 ├── docker-compose.yml        # Orquestração de todos os serviços
-└── .env                      # Variáveis de ambiente (não versionado)
+├── .env.example              # Template de variáveis de ambiente (versionado)
+├── .env                      # Credenciais reais — NÃO versionado, crie localmente
+└── scripts/
+    └── setup.sh              # Cria o .env a partir do .env.example
 ```
 
 ---
@@ -202,14 +205,18 @@ WebBrasilLicitaPLataform/
 
 ### Desenvolvimento
 
+> **Segurança:** O arquivo `.env` com credenciais reais **nunca é commitado** no repositório (está no `.gitignore`). Use o `.env.example` como base e preencha com seus valores.
+
 ```bash
 # Clone o repositório
 git clone https://github.com/fabio0305/WebBrasilLicitaPLataform.git
 cd WebBrasilLicitaPLataform
 
-# Copie e configure as variáveis de ambiente
+# Cria o .env a partir do template (ou rode: bash scripts/setup.sh)
 cp .env.example .env
-# Edite o .env com suas credenciais
+
+# Edite o .env e substitua os campos TROQUE_AQUI pelas suas credenciais
+nano .env
 
 # Suba todos os serviços
 docker compose up -d
