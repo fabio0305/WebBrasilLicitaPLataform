@@ -32,6 +32,8 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import { useNavigate } from "react-router-dom";
 import { useProfile } from "../auth/ProfileContext";
+import { useAuth } from "../auth/AuthContext";
+import { agencyRegistrationApi, authApi } from "../api/client";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -912,11 +914,14 @@ function Step5({ data, set }: { data: FormData; set: (p: Partial<FormData>) => v
 export default function OrganizacaoCadastroPage() {
   const navigate = useNavigate();
   const { activeProfile } = useProfile();
+  const { setUser } = useAuth();
 
   const [activeStep, setActiveStep] = useState(0);
   const [data, setData] = useState<FormData>(INITIAL);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [completed, setCompleted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const set = useCallback((patch: Partial<FormData>) => {
     setData((prev) => ({ ...prev, ...patch }));
@@ -960,10 +965,42 @@ export default function OrganizacaoCadastroPage() {
     return Object.keys(errs).length === 0;
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (!validate()) return;
-    if (activeStep < STEPS.length - 1) setActiveStep((s) => s + 1);
-    else setCompleted(true);
+    if (activeStep < STEPS.length - 1) {
+      setActiveStep((s) => s + 1);
+      return;
+    }
+
+    // Last step: submit to backend
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      await agencyRegistrationApi.register({
+        name: data.nomePopular.trim() || data.nomeOficial.trim(),
+        officialName: data.nomeOficial.trim() || undefined,
+        cnpj: data.cnpj || undefined,
+        city: data.municipio.trim() || undefined,
+        state: data.uf || data.endUf || undefined,
+        sphere: data.esfera || undefined,
+        entityType: data.tipo || undefined,
+      });
+      // Refresh auth user so the new AGENCY_ADMIN role is reflected
+      const freshUser = await authApi.me();
+      setUser(freshUser);
+      // Clear stored profile so ProfileContext defaults to "organization"
+      localStorage.removeItem("licita-brasil:active-profile");
+      setCompleted(true);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "";
+      if (msg.includes("CNPJ_ALREADY_REGISTERED")) {
+        setSubmitError("Este CNPJ já está cadastrado na plataforma.");
+      } else {
+        setSubmitError("Não foi possível concluir o cadastro. Tente novamente.");
+      }
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleBack = () => setActiveStep((s) => Math.max(0, s - 1));
@@ -1000,25 +1037,21 @@ export default function OrganizacaoCadastroPage() {
       <Box sx={{ maxWidth: 560, mx: "auto", textAlign: "center", py: 6 }}>
         <CheckCircleIcon sx={{ fontSize: 72, color: "success.main", mb: 2 }} />
         <Typography variant="h5" fontWeight={700} sx={{ mb: 1 }}>
-          Cadastro enviado com sucesso!
+          Organização cadastrada com sucesso!
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-          O cadastro de <strong>{data.nomeOficial || "sua organização"}</strong> foi registrado e está em análise pela equipe da plataforma.
+          <strong>{data.nomeOficial || data.nomePopular || "Sua organização"}</strong> foi registrada na plataforma.
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-          Você receberá um e-mail de confirmação em breve. Após aprovação, os usuários cadastrados poderão acessar o sistema de licitações em nome da organização.
+          Seu perfil foi atualizado para <strong>Administrador do Órgão</strong>. Agora você pode gerenciar licitações, equipe e contratos em nome da organização.
         </Typography>
-        <Box sx={{ display: "flex", gap: 1.5, justifyContent: "center", flexWrap: "wrap" }}>
-          <Button variant="contained" onClick={() => navigate("/dashboard")}>
-            Voltar ao Painel
-          </Button>
-          <Button
-            variant="outlined"
-            onClick={() => { setCompleted(false); setActiveStep(0); setData(INITIAL); setErrors({}); }}
-          >
-            Novo Cadastro
-          </Button>
-        </Box>
+        <Button
+          variant="contained"
+          sx={{ bgcolor: "#2c3f31", "&:hover": { bgcolor: "#1e2c22" } }}
+          onClick={() => navigate("/orgao")}
+        >
+          Ir ao Painel do Órgão
+        </Button>
       </Box>
     );
   }
@@ -1079,13 +1112,17 @@ export default function OrganizacaoCadastroPage() {
         </CardContent>
       </Card>
 
+      {submitError && (
+        <Alert severity="error" sx={{ mt: 2 }}>{submitError}</Alert>
+      )}
+
       {/* Navigation */}
       <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2.5 }}>
         <Button
           variant="outlined"
           startIcon={<ArrowBackIcon />}
           onClick={handleBack}
-          disabled={activeStep === 0}
+          disabled={activeStep === 0 || submitting}
         >
           Anterior
         </Button>
@@ -1093,9 +1130,10 @@ export default function OrganizacaoCadastroPage() {
           variant="contained"
           endIcon={activeStep === STEPS.length - 1 ? <CheckCircleIcon /> : <ArrowForwardIcon />}
           onClick={handleNext}
+          disabled={submitting}
           sx={{ bgcolor: "#2c3f31", "&:hover": { bgcolor: "#1e2c22" } }}
         >
-          {activeStep === STEPS.length - 1 ? "Finalizar Cadastro" : "Próximo"}
+          {submitting ? "Cadastrando..." : activeStep === STEPS.length - 1 ? "Finalizar Cadastro" : "Próximo"}
         </Button>
       </Box>
     </Box>

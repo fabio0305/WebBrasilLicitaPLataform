@@ -122,7 +122,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     ? notifications.filter((n) => new Date(n.createdAt) > new Date(lastSeen)).length
     : notifications.length;
 
-  const isAdmin = user?.role === "ADMIN" || user?.permissions?.some((p) => p.startsWith("admin."));
+  const isAdmin = user?.role === "ADMIN";
   const isAgency = user?.permissions?.includes("agencies.dashboard.read") && Boolean(user?.agency);
   const isSupplier = !isAdmin && !isAgency && user?.permissions?.includes("suppliers.dashboard.read");
   const isCitizen = user?.role === "CITIZEN" || (
@@ -134,25 +134,27 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   const showingSupplierNav = isSupplier && activeProfile === "supplier";
 
-  const navItems: NavItem[] = isAgency
-    ? agencyNavItems
-    : isAdmin
+  const navItems: NavItem[] = isAdmin
     ? [
         ...baseNavItems,
         { label: "Criar Pregão", icon: <AddCircleIcon />, path: "/pregoes/novo" },
         { label: "Banco de Preços", icon: <BarChartIcon />, path: "/banco-de-precos" },
         { label: "Administração", icon: <AdminPanelSettingsIcon />, path: "/admin" },
       ]
+    : (isAgency && activeProfile !== "citizen")
+    ? agencyNavItems
     : showingSupplierNav
     ? supplierNavItems
-    : (isCitizen || isSupplier)
+    : (isCitizen || isSupplier || (isAgency && activeProfile === "citizen"))
     ? citizenNavItems
     : baseNavItems;
 
-  const handleSwitchProfile = (p: "citizen" | "supplier") => {
+  const handleSwitchProfile = (p: "citizen" | "supplier" | "organization") => {
     switchProfile(p);
     setProfileMenuAnchor(null);
-    navigate(p === "supplier" ? "/fornecedor" : "/dashboard", { replace: true });
+    if (p === "supplier") navigate("/fornecedor", { replace: true });
+    else if (p === "organization") navigate("/orgao", { replace: true });
+    else navigate("/dashboard", { replace: true });
   };
 
   const initials = user?.name
@@ -326,11 +328,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   >
                     {activeProfile === "supplier" ? (
                       <StoreIcon sx={{ fontSize: 17, color: "primary.main" }} />
+                    ) : activeProfile === "organization" ? (
+                      <CorporateFareIcon sx={{ fontSize: 17, color: "warning.main" }} />
                     ) : (
                       <PersonIcon sx={{ fontSize: 17, color: "success.main" }} />
                     )}
                     <Typography variant="body2" fontWeight={600} sx={{ fontSize: 12.5 }}>
-                      {activeProfile === "supplier" ? "Fornecedor" : "Cidadão"}
+                      {activeProfile === "supplier" ? "Fornecedor" : activeProfile === "organization" ? "Organização" : "Cidadão"}
                     </Typography>
                     <SwapHorizIcon sx={{ fontSize: 15, color: "text.disabled" }} />
                   </Box>
@@ -377,29 +381,57 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     )}
                   </MenuItem>
 
-                  {/* Supplier profile option */}
-                  <MenuItem
-                    onClick={() => handleSwitchProfile("supplier")}
-                    sx={{ py: 1.5, gap: 1.5, alignItems: "flex-start" }}
-                  >
-                    <Avatar
-                      sx={{
-                        width: 36, height: 36, flexShrink: 0, mt: 0.25,
-                        bgcolor: activeProfile === "supplier" ? "primary.main" : "grey.200",
-                      }}
+                  {/* Supplier profile option — only for supplier users */}
+                  {isSupplier && (
+                    <MenuItem
+                      onClick={() => handleSwitchProfile("supplier")}
+                      sx={{ py: 1.5, gap: 1.5, alignItems: "flex-start" }}
                     >
-                      <StoreIcon sx={{ fontSize: 20, color: activeProfile === "supplier" ? "white" : "text.secondary" }} />
-                    </Avatar>
-                    <Box sx={{ flex: 1, minWidth: 0 }}>
-                      <Typography variant="body2" fontWeight={600} lineHeight={1.3}>Perfil Fornecedor</Typography>
-                      <Typography variant="caption" color="text.secondary" display="block" lineHeight={1.4}>
-                        Gerenciar empresa e propostas
-                      </Typography>
-                    </Box>
-                    {activeProfile === "supplier" && (
-                      <CheckIcon fontSize="small" sx={{ color: "primary.main", mt: 0.5 }} />
-                    )}
-                  </MenuItem>
+                      <Avatar
+                        sx={{
+                          width: 36, height: 36, flexShrink: 0, mt: 0.25,
+                          bgcolor: activeProfile === "supplier" ? "primary.main" : "grey.200",
+                        }}
+                      >
+                        <StoreIcon sx={{ fontSize: 20, color: activeProfile === "supplier" ? "white" : "text.secondary" }} />
+                      </Avatar>
+                      <Box sx={{ flex: 1, minWidth: 0 }}>
+                        <Typography variant="body2" fontWeight={600} lineHeight={1.3}>Perfil Fornecedor</Typography>
+                        <Typography variant="caption" color="text.secondary" display="block" lineHeight={1.4}>
+                          Gerenciar empresa e propostas
+                        </Typography>
+                      </Box>
+                      {activeProfile === "supplier" && (
+                        <CheckIcon fontSize="small" sx={{ color: "primary.main", mt: 0.5 }} />
+                      )}
+                    </MenuItem>
+                  )}
+
+                  {/* Organization profile option — only for agency users */}
+                  {isAgency && (
+                    <MenuItem
+                      onClick={() => handleSwitchProfile("organization")}
+                      sx={{ py: 1.5, gap: 1.5, alignItems: "flex-start" }}
+                    >
+                      <Avatar
+                        sx={{
+                          width: 36, height: 36, flexShrink: 0, mt: 0.25,
+                          bgcolor: activeProfile === "organization" ? "warning.main" : "grey.200",
+                        }}
+                      >
+                        <CorporateFareIcon sx={{ fontSize: 20, color: activeProfile === "organization" ? "white" : "text.secondary" }} />
+                      </Avatar>
+                      <Box sx={{ flex: 1, minWidth: 0 }}>
+                        <Typography variant="body2" fontWeight={600} lineHeight={1.3}>Perfil Organização</Typography>
+                        <Typography variant="caption" color="text.secondary" display="block" lineHeight={1.4}>
+                          Gerenciar órgão e licitações
+                        </Typography>
+                      </Box>
+                      {activeProfile === "organization" && (
+                        <CheckIcon fontSize="small" sx={{ color: "warning.main", mt: 0.5 }} />
+                      )}
+                    </MenuItem>
+                  )}
                 </Menu>
               </>
             )}

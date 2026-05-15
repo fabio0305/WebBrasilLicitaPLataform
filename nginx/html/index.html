@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <script>(function(){var p=location.pathname;if(p.endsWith('.html')){location.replace((p==='/index.html'?'/':p.slice(0,-5))+location.search+location.hash);}})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Licita Brasil Web – A Plataforma de Licitações Mais Completa do Brasil</title>
   <meta name="description" content="Conectamos órgãos públicos a fornecedores de produtos e serviços com tecnologia, transparência e agilidade." />
@@ -16,7 +15,7 @@
   <header class="header" id="header">
     <div class="container header__inner">
 
-      <a href="javascript:void(0)" class="logo">
+      <a href="#" class="logo">
         <span class="logo__icon">⚖</span>
         <span class="logo__text">Licita<strong>Brasil</strong><span class="logo__tag">Web</span></span>
       </a>
@@ -29,9 +28,9 @@
               Comprador <svg class="icon-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
             </button>
             <div class="dropdown">
-              <a href="javascript:void(0)" class="dropdown__item">Órgãos Públicos</a>
-              <a href="javascript:void(0)" class="dropdown__item">Empresas Estatais</a>
-              <a href="javascript:void(0)" class="dropdown__item">Sistema S</a>
+              <a href="#" class="dropdown__item">Órgãos Públicos</a>
+              <a href="#" class="dropdown__item">Empresas Estatais</a>
+              <a href="#" class="dropdown__item">Sistema S</a>
             </div>
           </li>
 
@@ -44,10 +43,10 @@
               Serviços <svg class="icon-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
             </button>
             <div class="dropdown">
-              <a href="javascript:void(0)" class="dropdown__item">Pregão Eletrônico</a>
-              <a href="javascript:void(0)" class="dropdown__item">Dispensa Eletrônica</a>
-              <a href="javascript:void(0)" class="dropdown__item">Credenciamento</a>
-              <a href="javascript:void(0)" class="dropdown__item">Cotação Eletrônica</a>
+              <a href="#" class="dropdown__item">Pregão Eletrônico</a>
+              <a href="#" class="dropdown__item">Dispensa Eletrônica</a>
+              <a href="#" class="dropdown__item">Credenciamento</a>
+              <a href="#" class="dropdown__item">Cotação Eletrônica</a>
             </div>
           </li>
 
@@ -62,8 +61,8 @@
       </nav>
 
       <div class="header__actions">
-        <a href="cadastro" class="btn btn--ghost">Cadastrar</a>
-        <a href="login" class="btn btn--primary">Acessar Plataforma</a>
+        <a href="cadastro.html" class="btn btn--ghost">Cadastrar</a>
+        <a href="login.html" class="btn btn--primary">Acessar Plataforma</a>
       </div>
 
       <button class="hamburger" id="hamburger" aria-label="Abrir menu">
@@ -91,7 +90,7 @@
           Conectamos órgãos públicos a fornecedores de produtos e serviços com tecnologia de ponta, total transparência e suporte especializado em cada etapa do processo.
         </p>
         <div class="hero__actions">
-          <a href="cadastro" class="btn btn--primary btn--lg">Cadastrar Gratuitamente</a>
+          <a href="cadastro.html" class="btn btn--primary btn--lg">Cadastrar Gratuitamente</a>
           <a href="#busca" class="btn btn--outline btn--lg">
             <svg viewBox="0 0 20 20" fill="currentColor" class="btn__icon"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
             Pesquisar Licitações
@@ -123,31 +122,15 @@
           <div class="dashboard-card__body">
             <div class="dash-stat">
               <span class="dash-stat__label">Pregões Ativos</span>
-              <span class="dash-stat__value dash-stat__value--green">1.842</span>
+              <span class="dash-stat__value dash-stat__value--green" id="panel-active">—</span>
             </div>
             <div class="dash-stat">
               <span class="dash-stat__label">Encerrando Hoje</span>
-              <span class="dash-stat__value dash-stat__value--orange">47</span>
+              <span class="dash-stat__value dash-stat__value--orange" id="panel-closing">—</span>
             </div>
             <div class="dash-stat">
               <span class="dash-stat__label">Novas Hoje</span>
-              <span class="dash-stat__value dash-stat__value--blue">213</span>
-            </div>
-            <div class="dash-progress">
-              <div class="dash-progress__label">
-                <span>Pregão #2024-0847</span>
-                <span class="dash-progress__badge">Em andamento</span>
-              </div>
-              <div class="dash-progress__bar"><div class="dash-progress__fill" style="width:68%"></div></div>
-              <p class="dash-progress__sub">Tecnologia da Informação · R$ 840.000</p>
-            </div>
-            <div class="dash-progress">
-              <div class="dash-progress__label">
-                <span>Dispensa #2024-0124</span>
-                <span class="dash-progress__badge dash-progress__badge--purple">Homologado</span>
-              </div>
-              <div class="dash-progress__bar"><div class="dash-progress__fill" style="width:100%"></div></div>
-              <p class="dash-progress__sub">Material de Escritório · R$ 24.500</p>
+              <span class="dash-stat__value dash-stat__value--blue" id="panel-new">—</span>
             </div>
           </div>
         </div>
@@ -158,27 +141,22 @@
   <!-- ============================================================ STATS -->
   <section class="stats" id="stats">
     <div class="container stats__grid">
-      <div class="stat-item" data-count="128400">
+      <div class="stat-item">
         <span class="stat-item__number" id="stat-0">0</span>
         <span class="stat-item__label">Licitações Realizadas</span>
       </div>
-      <div class="stat-item" data-count="47">
+      <div class="stat-item">
         <span class="stat-item__number" id="stat-1">0</span>
         <span class="stat-item__label">Bilhões em Contratos</span>
         <span class="stat-item__suffix">R$</span>
       </div>
-      <div class="stat-item" data-count="3800">
+      <div class="stat-item">
         <span class="stat-item__number" id="stat-2">0</span>
         <span class="stat-item__label">Órgãos Cadastrados</span>
       </div>
-      <div class="stat-item" data-count="89000">
+      <div class="stat-item">
         <span class="stat-item__number" id="stat-3">0</span>
         <span class="stat-item__label">Fornecedores Ativos</span>
-      </div>
-      <div class="stat-item" data-count="28">
-        <span class="stat-item__number" id="stat-4">0</span>
-        <span class="stat-item__label">% de Economia Gerada</span>
-        <span class="stat-item__suffix">até</span>
       </div>
     </div>
   </section>
@@ -205,7 +183,7 @@
             <li>Relatórios automáticos de conformidade</li>
             <li>Publicação no PNCP automática</li>
           </ul>
-          <a href="cadastro" class="btn btn--primary btn--sm">Sou Comprador</a>
+          <a href="cadastro.html" class="btn btn--primary btn--sm">Sou Comprador</a>
         </div>
 
         <div class="profile-card profile-card--green">
@@ -220,7 +198,7 @@
             <li>Certificado digital integrado</li>
             <li>Relatório de desempenho</li>
           </ul>
-          <a href="cadastro" class="btn btn--success btn--sm">Sou Fornecedor</a>
+          <a href="cadastro.html" class="btn btn--success btn--sm">Sou Fornecedor</a>
         </div>
 
         <div class="profile-card profile-card--purple">
@@ -235,7 +213,7 @@
             <li>Denúncias e ouvidoria</li>
             <li>Relatórios de gastos públicos</li>
           </ul>
-          <a href="cadastro" class="btn btn--purple btn--sm">Quero Acompanhar</a>
+          <a href="cadastro.html" class="btn btn--purple btn--sm">Quero Acompanhar</a>
         </div>
 
       </div>
@@ -415,7 +393,7 @@
   </section>
 
   <!-- ============================================================ DEPOIMENTOS -->
-  <section class="testimonials section" id="depoimentos">
+  <section class="testimonials section" id="depoimentos" style="display:none">
     <div class="container">
       <div class="section-header">
         <span class="badge badge--light">Depoimentos</span>
@@ -492,7 +470,7 @@
             <span class="news-card__date">18 de abril de 2026</span>
             <h3 class="news-card__title">Obrigatoriedade da Nova Lei de Licitações: prazo final e o que muda para os municípios</h3>
             <p class="news-card__excerpt">Com a entrada em vigor definitiva da Lei 14.133/2021, entenda os principais impactos para gestores públicos e como se adequar.</p>
-            <a href="javascript:void(0)" class="news-card__link">Ler artigo completo →</a>
+            <a href="#" class="news-card__link">Ler artigo completo →</a>
           </div>
         </article>
 
@@ -503,7 +481,7 @@
           <div class="news-card__body">
             <span class="news-card__date">12 de abril de 2026</span>
             <h3 class="news-card__title">IA nas licitações: como a inteligência artificial está revolucionando as compras públicas</h3>
-            <a href="javascript:void(0)" class="news-card__link">Ler artigo →</a>
+            <a href="#" class="news-card__link">Ler artigo →</a>
           </div>
         </article>
 
@@ -514,7 +492,7 @@
           <div class="news-card__body">
             <span class="news-card__date">05 de abril de 2026</span>
             <h3 class="news-card__title">Integração PNCP: tudo o que você precisa saber sobre o Portal Nacional de Contratações Públicas</h3>
-            <a href="javascript:void(0)" class="news-card__link">Ler artigo →</a>
+            <a href="#" class="news-card__link">Ler artigo →</a>
           </div>
         </article>
 
@@ -529,20 +507,20 @@
         <h2 class="cta-section__title">Pronto para modernizar suas licitações?</h2>
         <p class="cta-section__subtitle">Junte-se a mais de 3.800 órgãos públicos que já utilizam a plataforma mais completa do Brasil.</p>
         <div class="cta-section__actions">
-          <a href="cadastro" class="btn btn--white btn--lg">Cadastrar Gratuitamente</a>
-          <a href="javascript:void(0)" class="btn btn--outline-white btn--lg">Falar com Especialista</a>
+          <a href="cadastro.html" class="btn btn--white btn--lg">Cadastrar Gratuitamente</a>
+          <a href="/contato" class="btn btn--outline-white btn--lg">Falar com Especialista</a>
         </div>
       </div>
       <div class="cta-section__visual">
         <div class="cta-phones">
-          <div class="cta-phone cta-phone--whatsapp">
+          <a href="https://wa.me/5531982667628" target="_blank" rel="noopener noreferrer" class="cta-phone cta-phone--whatsapp" style="text-decoration:none;cursor:pointer;">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            (11) 4000-0000
-          </div>
-          <div class="cta-phone cta-phone--mail">
+            (31) 98266-7628
+          </a>
+          <a href="mailto:suporte@licitabrasilweb.com.br" class="cta-phone cta-phone--mail" style="text-decoration:none;cursor:pointer;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            contato@licitabrasil.web.br
-          </div>
+            suporte@licitabrasilweb.com.br
+          </a>
         </div>
       </div>
     </div>
@@ -552,22 +530,22 @@
   <footer class="footer" id="footer">
     <div class="container footer__top">
       <div class="footer__brand">
-        <a href="javascript:void(0)" class="logo logo--white">
+        <a href="#" class="logo logo--white">
           <span class="logo__icon">⚖</span>
           <span class="logo__text">Licita<strong>Brasil</strong><span class="logo__tag">Web</span></span>
         </a>
         <p class="footer__tagline">A plataforma de licitações mais completa e transparente do Brasil.</p>
         <div class="footer__social">
-          <a href="javascript:void(0)" class="social-link" aria-label="Facebook">
+          <a href="#" class="social-link" aria-label="Facebook">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
           </a>
-          <a href="javascript:void(0)" class="social-link" aria-label="LinkedIn">
+          <a href="#" class="social-link" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
-          <a href="javascript:void(0)" class="social-link" aria-label="Instagram">
+          <a href="#" class="social-link" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
           </a>
-          <a href="javascript:void(0)" class="social-link" aria-label="YouTube">
+          <a href="#" class="social-link" aria-label="YouTube">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
           </a>
         </div>
@@ -576,41 +554,41 @@
         <div class="footer__col">
           <h4 class="footer__col-title">Plataforma</h4>
           <ul>
-            <li><a href="javascript:void(0)">Para Compradores</a></li>
-            <li><a href="javascript:void(0)">Para Fornecedores</a></li>
-            <li><a href="javascript:void(0)">Para Cidadãos</a></li>
-            <li><a href="javascript:void(0)">Pregão Eletrônico</a></li>
-            <li><a href="javascript:void(0)">Dispensa Eletrônica</a></li>
+            <li><a href="#">Para Compradores</a></li>
+            <li><a href="#">Para Fornecedores</a></li>
+            <li><a href="#">Para Cidadãos</a></li>
+            <li><a href="#">Pregão Eletrônico</a></li>
+            <li><a href="#">Dispensa Eletrônica</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h4 class="footer__col-title">Recursos</h4>
           <ul>
-            <li><a href="javascript:void(0)">Blog e Notícias</a></li>
-            <li><a href="javascript:void(0)">Base de Conhecimento</a></li>
-            <li><a href="javascript:void(0)">Vídeo Tutoriais</a></li>
-            <li><a href="javascript:void(0)">Webinars</a></li>
-            <li><a href="javascript:void(0)">Lei 14.133 Comentada</a></li>
+            <li><a href="#">Blog e Notícias</a></li>
+            <li><a href="#">Base de Conhecimento</a></li>
+            <li><a href="#">Vídeo Tutoriais</a></li>
+            <li><a href="#">Webinars</a></li>
+            <li><a href="#">Lei 14.133 Comentada</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h4 class="footer__col-title">Empresa</h4>
           <ul>
-            <li><a href="javascript:void(0)">Sobre Nós</a></li>
-            <li><a href="javascript:void(0)">Carreiras</a></li>
-            <li><a href="javascript:void(0)">Imprensa</a></li>
-            <li><a href="javascript:void(0)">Parceiros</a></li>
-            <li><a href="javascript:void(0)">Contato</a></li>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Carreiras</a></li>
+            <li><a href="#">Imprensa</a></li>
+            <li><a href="#">Parceiros</a></li>
+            <li><a href="#">Contato</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h4 class="footer__col-title">Legal</h4>
           <ul>
-            <li><a href="javascript:void(0)">Termos de Uso</a></li>
-            <li><a href="javascript:void(0)">Política de Privacidade</a></li>
-            <li><a href="javascript:void(0)">Política LGPD</a></li>
-            <li><a href="javascript:void(0)">Código de Ética</a></li>
-            <li><a href="javascript:void(0)">Acessibilidade</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Política LGPD</a></li>
+            <li><a href="#">Código de Ética</a></li>
+            <li><a href="#">Acessibilidade</a></li>
           </ul>
         </div>
       </div>
@@ -623,6 +601,7 @@
     </div>
   </footer>
 
+  <script src="/socket.io/socket.io.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

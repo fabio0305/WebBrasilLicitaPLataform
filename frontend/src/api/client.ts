@@ -156,6 +156,23 @@ export const adminApi = {
 
 // ─── Dashboards ───────────────────────────────────────────────────────────────
 
+export const agencyRegistrationApi = {
+  register: (body: {
+    name: string;
+    officialName?: string;
+    cnpj?: string;
+    city?: string;
+    state?: string;
+    sphere?: string;
+    entityType?: string;
+  }) =>
+    apiFetch<{ agencyId: string }>("/api/agencies/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }),
+};
+
 export const organApi = {
   dashboard: () => apiFetch<AgencyDashboard>("/api/dashboards/agency"),
 
@@ -187,6 +204,23 @@ export const organApi = {
     apiFetch<{ ok: boolean }>(`/api/dashboards/agency/contracts/${id}`, { method: "DELETE" }),
 
   members: () => apiFetch<{ members: AgencyMember[] }>("/api/dashboards/agency/members").then((d) => d.members ?? []),
+
+  searchCitizens: (q: string) =>
+    apiFetch<{ users: { id: string; name: string; email: string }[] }>(
+      `/api/dashboards/agency/members/search?q=${encodeURIComponent(q)}`
+    ).then((d) => d.users ?? []),
+
+  addMember: (citizenId: string) =>
+    apiFetch<AgencyMember>("/api/dashboards/agency/members", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ citizenId }),
+    }),
+
+  removeMember: (userId: string) =>
+    apiFetch<{ ok: boolean }>(`/api/dashboards/agency/members/${userId}`, {
+      method: "DELETE",
+    }),
 
   integrations: () =>
     apiFetch<{ integrations: Integration[] }>("/api/dashboards/agency/integrations").then((d) => d.integrations ?? []),

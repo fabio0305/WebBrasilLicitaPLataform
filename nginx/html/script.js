@@ -2,19 +2,6 @@
    LICITA BRASIL WEB – Scripts
    ================================================================ */
 
-// ---- Smooth scroll sem # na URL ----
-document.addEventListener('click', function(e) {
-  const link = e.target.closest('a[href^="#"]');
-  if (!link) return;
-  const target = link.getAttribute('href');
-  if (target === '#' || target === 'javascript:void(0)') return;
-  const el = document.querySelector(target);
-  if (!el) return;
-  e.preventDefault();
-  el.scrollIntoView({ behavior: 'smooth' });
-  history.replaceState(null, '', location.pathname + location.search);
-});
-
 // ---- Header scroll shadow ----
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
@@ -68,27 +55,44 @@ function animateCounter(el, target, duration = 2000, suffix = '') {
 
 const statsSection = document.getElementById('stats');
 let statsAnimated = false;
+let statsGridData = { stat0: 0, stat1: 0, stat2: 0, stat3: 0 };
 
-const statsData = [
-  { id: 'stat-0', count: 128400 },
-  { id: 'stat-1', count: 47 },
-  { id: 'stat-2', count: 3800 },
-  { id: 'stat-3', count: 89000 },
-  { id: 'stat-4', count: 28 },
-];
+function applyStatsGrid(data) {
+  statsGridData = {
+    stat0: data.totalAuctions         ?? 0,
+    stat1: data.totalContractValueBillions ?? 0,
+    stat2: data.totalAgencies         ?? 0,
+    stat3: data.totalSuppliers        ?? 0,
+  };
+  // Se a seção já foi animada, atualiza direto; caso contrário aguarda o scroll
+  if (statsAnimated) {
+    const el0 = document.getElementById('stat-0');
+    const el1 = document.getElementById('stat-1');
+    const el2 = document.getElementById('stat-2');
+    const el3 = document.getElementById('stat-3');
+    if (el0) el0.textContent = statsGridData.stat0.toLocaleString('pt-BR');
+    if (el1) el1.textContent = statsGridData.stat1.toLocaleString('pt-BR');
+    if (el2) el2.textContent = statsGridData.stat2.toLocaleString('pt-BR');
+    if (el3) el3.textContent = statsGridData.stat3.toLocaleString('pt-BR');
+  }
+}
 
 // ---- Intersection Observer ----
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
 
-    // Stats counters
+    // Stats counters animados com dados reais do banco
     if (entry.target === statsSection && !statsAnimated) {
       statsAnimated = true;
-      statsData.forEach(({ id, count }) => {
-        const el = document.getElementById(id);
-        if (el) animateCounter(el, count, 2200);
-      });
+      const el0 = document.getElementById('stat-0');
+      const el1 = document.getElementById('stat-1');
+      const el2 = document.getElementById('stat-2');
+      const el3 = document.getElementById('stat-3');
+      if (el0) animateCounter(el0, statsGridData.stat0, 2200);
+      if (el1) animateCounter(el1, statsGridData.stat1, 2200);
+      if (el2) animateCounter(el2, statsGridData.stat2, 2200);
+      if (el3) animateCounter(el3, statsGridData.stat3, 2200);
     }
 
     // Fade-up cards
@@ -160,3 +164,31 @@ document.querySelectorAll('.search-tag').forEach(tag => {
     }
   });
 });
+
+// ---- Painel de Licitações – dados reais ----
+const elActive  = document.getElementById('panel-active');
+const elClosing = document.getElementById('panel-closing');
+const elNew     = document.getElementById('panel-new');
+
+function applyPanelStats(data) {
+  if (!data) return;
+  if (elActive)  elActive.textContent  = data.activeAuctions.toLocaleString('pt-BR');
+  if (elClosing) elClosing.textContent = data.closingToday.toLocaleString('pt-BR');
+  if (elNew)     elNew.textContent     = data.newToday.toLocaleString('pt-BR');
+  applyStatsGrid(data);
+}
+
+async function fetchPanelStats() {
+  try {
+    const res = await fetch('/api/public/stats');
+    if (res.ok) applyPanelStats(await res.json());
+  } catch (_) {}
+}
+
+fetchPanelStats();
+
+// Atualização em tempo real via Socket.IO
+if (typeof io !== 'undefined') {
+  const socket = io({ transports: ['websocket', 'polling'] });
+  socket.on('public:statsUpdated', applyPanelStats);
+}

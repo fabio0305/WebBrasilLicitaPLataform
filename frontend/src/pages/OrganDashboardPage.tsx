@@ -28,6 +28,10 @@ import GavelIcon from "@mui/icons-material/Gavel";
 import GroupIcon from "@mui/icons-material/Group";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import BadgeIcon from "@mui/icons-material/Badge";
+import BusinessIcon from "@mui/icons-material/Business";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import HowToVoteIcon from "@mui/icons-material/HowToVote";
@@ -426,6 +430,8 @@ function ContractSummaryCard({ metrics }: { metrics: AgencyDashboard["metrics"] 
 
 export default function OrganDashboardPage() {
   const { user } = useAuth();
+  const isOrgAdmin = user?.permissions?.includes("agencies.team.manage") ?? false;
+
   const [data, setData] = useState<AgencyDashboard | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -464,13 +470,44 @@ export default function OrganDashboardPage() {
   return (
     <Box>
       {/* Header */}
-      <Box sx={{ mb: 3 }}>
-        <Typography variant="h5" fontWeight={800}>{greeting}</Typography>
-        <Typography variant="body2" color="text.secondary">
-          {new Date().toLocaleDateString("pt-BR", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}
-          {data?.agency?.name && ` · ${data.agency.name}`}
-        </Typography>
+      <Box sx={{ mb: 3, display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 2, flexWrap: "wrap" }}>
+        <Box>
+          <Typography variant="h5" fontWeight={800}>{greeting}</Typography>
+          <Typography variant="body2" color="text.secondary">
+            {new Date().toLocaleDateString("pt-BR", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}
+            {data?.agency?.name && ` · ${data.agency.name}`}
+          </Typography>
+        </Box>
+        <Chip
+          icon={isOrgAdmin
+            ? <AdminPanelSettingsIcon sx={{ fontSize: "16px !important" }} />
+            : <BadgeIcon sx={{ fontSize: "16px !important" }} />}
+          label={isOrgAdmin ? "Administrador do Órgão" : "Membro do Órgão"}
+          color={isOrgAdmin ? "primary" : "success"}
+          variant="outlined"
+          size="small"
+          sx={{ fontWeight: 600, mt: 0.5 }}
+        />
       </Box>
+
+      {/* Admin-only section */}
+      {isOrgAdmin && (
+        <Paper
+          elevation={0}
+          sx={{ p: 2, mb: 3, border: "1px solid", borderColor: "primary.light", borderRadius: 2, bgcolor: "#f0f4ff" }}
+        >
+          <Box sx={{ display: "flex", alignItems: "center", gap: 0.75, mb: 1.25 }}>
+            <AdminPanelSettingsIcon sx={{ fontSize: 15, color: "primary.main" }} />
+            <Typography variant="caption" fontWeight={700} color="primary.main" sx={{ textTransform: "uppercase", letterSpacing: 0.5 }}>
+              Administração
+            </Typography>
+          </Box>
+          <Stack direction="row" spacing={1.5} flexWrap="wrap" useFlexGap>
+            <QuickAction label="Gerenciar Equipe" icon={<PersonAddIcon fontSize="small" />} to="/orgao/equipe" color="#1565c0" />
+            <QuickAction label="Dados da Organização" icon={<BusinessIcon fontSize="small" />} to="/orgao/organizacao" color="#7b1fa2" />
+          </Stack>
+        </Paper>
+      )}
 
       {/* Quick Actions */}
       <Paper

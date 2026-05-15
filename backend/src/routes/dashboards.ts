@@ -237,6 +237,94 @@ dashboardsRouter.get(
   })
 );
 
+// ── Agency members: search citizens ──────────────────────────────────────────
+dashboardsRouter.get(
+  "/agency/members/search",
+  requireAuth,
+  requirePermission(PERMISSIONS.AGENCIES_TEAM_MANAGE),
+  asyncHandler(async (req, res) => {
+    const { q } = req.query as Record<string, string>;
+    if (!q || q.trim().length < 2) return res.json({ users: [] });
+    const term = q.trim();
+    const ineligibleRoles = [UserRole.ADMIN, UserRole.AGENCY_ADMIN, UserRole.AGENCY_MEMBER];
+    const users = await AppDataSource.getRepository(User)
+      .createQueryBuilder("u")
+      .where("u.active = true")
+      .andWhere("u.agencyId IS NULL")
+      .andWhere("u.role NOT IN (:...ineligible)", { ineligible: ineligibleRoles })
+      .andWhere("(u.name ILIKE :q OR u.email ILIKE :q)", { q: `%${term}%` })
+      .orderBy("u.name", "ASC")
+      .take(10)
+      .getMany();
+    return res.json({
+      users: users.map((u) => ({ id: u.id, name: u.name, email: u.email })),
+    });
+  })
+);
+
+// ── Agency members: add citizen ───────────────────────────────────────────────
+dashboardsRouter.post(
+  "/agency/members",
+  requireAuth,
+  requirePermission(PERMISSIONS.AGENCIES_TEAM_MANAGE),
+  asyncHandler(async (req, res) => {
+    const agencyId = req.auth!.agencyId;
+    const adminUserId = req.auth!.userId;
+    if (!agencyId) return res.status(403).json({ error: "NO_AGENCY" });
+
+    const body = req.body ?? {};
+    const citizenId = typeof body.citizenId === "string" ? body.citizenId.trim() : "";
+    if (!citizenId) return res.status(400).json({ error: "CITIZEN_ID_REQUIRED" });
+    if (citizenId === adminUserId) return res.status(400).json({ error: "CANNOT_ADD_SELF" });
+
+    const ineligibleRoles = [UserRole.ADMIN, UserRole.AGENCY_ADMIN, UserRole.AGENCY_MEMBER];
+    const userRepo = AppDataSource.getRepository(User);
+    const citizen = await userRepo.findOne({ where: { id: citizenId, active: true } });
+    if (!citizen) return res.status(404).json({ error: "USER_NOT_FOUND" });
+    if (ineligibleRoles.includes(citizen.role as UserRole)) return res.status(422).json({ error: "USER_NOT_ELIGIBLE" });
+    if (citizen.agencyId) return res.status(422).json({ error: "USER_ALREADY_IN_AGENCY" });
+
+    citizen.role = UserRole.AGENCY_MEMBER;
+    citizen.agencyId = agencyId;
+    await userRepo.save(citizen);
+
+    return res.status(201).json({
+      id: citizen.id,
+      name: citizen.name,
+      email: citizen.email,
+      role: citizen.role,
+      active: citizen.active,
+      createdAt: citizen.createdAt,
+    });
+  })
+);
+
+// ── Agency members: remove member ─────────────────────────────────────────────
+dashboardsRouter.delete(
+  "/agency/members/:userId",
+  requireAuth,
+  requirePermission(PERMISSIONS.AGENCIES_TEAM_MANAGE),
+  asyncHandler(async (req, res) => {
+    const agencyId = req.auth!.agencyId;
+    const adminUserId = req.auth!.userId;
+    if (!agencyId) return res.status(403).json({ error: "NO_AGENCY" });
+
+    const { userId } = req.params;
+    if (userId === adminUserId) return res.status(400).json({ error: "CANNOT_REMOVE_SELF" });
+
+    const userRepo = AppDataSource.getRepository(User);
+    const member = await userRepo.findOne({ where: { id: userId, agencyId } });
+    if (!member) return res.status(404).json({ error: "MEMBER_NOT_FOUND" });
+    if (member.role === UserRole.AGENCY_ADMIN) return res.status(403).json({ error: "CANNOT_REMOVE_ADMIN" });
+
+    member.role = UserRole.CITIZEN;
+    member.agencyId = null;
+    await userRepo.save(member);
+
+    return res.json({ ok: true });
+  })
+);
+
 // ── Agency auctions (own) ─────────────────────────────────────────────────────
 dashboardsRouter.get(
   "/agency/auctions",

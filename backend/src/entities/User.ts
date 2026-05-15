@@ -18,6 +18,7 @@ import type { SupplierProfile } from "./SupplierProfile";
 export enum UserRole {
   ADMIN = "ADMIN",
   AGENCY_ADMIN = "AGENCY_ADMIN",
+  AGENCY_MEMBER = "AGENCY_MEMBER",
   AUCTIONEER = "AUCTIONEER",
   AUTHORITY = "AUTHORITY",
   PUBLIC_AGENCY = "PUBLIC_AGENCY",

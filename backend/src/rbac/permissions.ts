@@ -13,6 +13,7 @@ export const PERMISSIONS = {
   ADMIN_PERMISSIONS_READ: "admin.permissions.read",
   ADMIN_PERMISSIONS_WRITE: "admin.permissions.write",
   AGENCIES_DASHBOARD_READ: "agencies.dashboard.read",
+  AGENCIES_TEAM_MANAGE: "agencies.team.manage",
   SUPPLIERS_DASHBOARD_READ: "suppliers.dashboard.read",
 } as const;
 

@@ -6,6 +6,7 @@ import { PERMISSIONS } from "./permissions";
 const DEFAULT_ROLES = [
   { key: "ADMIN", name: "Administrador", system: true },
   { key: "AGENCY_ADMIN", name: "Administrador de Órgão", system: true },
+  { key: "AGENCY_MEMBER", name: "Membro de Órgão", system: true },
   { key: "AUCTIONEER", name: "Pregoeiro", system: true },
   { key: "AUTHORITY", name: "Autoridade Competente", system: true },
   { key: "PUBLIC_AGENCY", name: "Órgão Público", system: true },
@@ -19,7 +20,11 @@ const ROLE_PERMISSIONS: Record<string, string[]> = {
   AGENCY_ADMIN: [
     PERMISSIONS.AUCTIONS_READ, PERMISSIONS.AUCTIONS_WRITE,
     PERMISSIONS.AGENCIES_DASHBOARD_READ,
-    PERMISSIONS.ADMIN_CONTRACTS_READ, PERMISSIONS.ADMIN_CONTRACTS_WRITE,
+    PERMISSIONS.AGENCIES_TEAM_MANAGE,
+  ],
+  AGENCY_MEMBER: [
+    PERMISSIONS.AUCTIONS_READ, PERMISSIONS.AUCTIONS_WRITE,
+    PERMISSIONS.AGENCIES_DASHBOARD_READ,
   ],
   AUCTIONEER: [
     PERMISSIONS.AUCTIONS_READ, PERMISSIONS.AUCTIONS_WRITE,
@@ -55,6 +60,15 @@ export async function seedRbacDefaults() {
     }
 
     const permKeys = ROLE_PERMISSIONS[roleDef.key] ?? [];
+
+    // Remove permissions no longer in the config for this role
+    const stale = role.permissions.filter((p) => !permKeys.includes(p.key));
+    if (stale.length > 0) {
+      role.permissions = role.permissions.filter((p) => permKeys.includes(p.key));
+      await roleRepo.save(role);
+    }
+
+    // Add missing permissions
     for (const permKey of permKeys) {
       const alreadyHas = role.permissions.some((p) => p.key === permKey);
       if (!alreadyHas) {

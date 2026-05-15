@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//opt/licita-brasil/frontend/src/**)",
+      "Read(//opt/licita-brasil/frontend/**)",
+      "Read(//opt/licita-brasil/**)",
+      "Bash(docker compose *)",
+      "Bash(curl -s http://10.230.5.32)",
+      "Bash(npx tsc *)",
+      "Read(//usr/local/bin/**)"
+    ],
+    "additionalDirectories": [
+      "/opt/licita-brasil/frontend/src",
+      "/opt/licita-brasil/frontend"
+    ]
+  }
+}

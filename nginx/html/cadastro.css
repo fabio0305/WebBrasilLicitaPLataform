@@ -683,7 +683,7 @@
   font-size: .95rem;
   color: var(--gray-600);
   line-height: 1.7;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .reg-success__notice {
@@ -694,10 +694,10 @@
   border: 1px solid #fde68a;
   border-radius: 8px;
   padding: 12px 14px;
-  font-size: .85rem;
+  margin-bottom: 24px;
+  font-size: .88rem;
   color: #92400e;
   text-align: left;
-  margin-bottom: 8px;
 }
 
 /* ---- Footer tweak ---- */
